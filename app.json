@@ -13,10 +13,16 @@
       "value": ""
     },  
     
-    "MONGODB": {
+    "ALIVE_IMG": {
       "description": "you can use this public mongodb url if you have your personal key So you can use him.",
       "required": true,
-      "value": "mongodb+srv://su7465058:it583k0A4NbDPlE4@cluster0.eawwp3y.mongodb.net/?retryWrites=true&w=majority"
+      "value": "https://telegra.ph/file/e47b23583ab7ec42d58df.jpg"
+    },
+
+    "ALIVE_MSG": {
+      "description": "you can use this public mongodb url if you have your personal key So you can use him.",
+      "required": true,
+      "value": "HIIIIIII AND MORE"
     }
 },
 
