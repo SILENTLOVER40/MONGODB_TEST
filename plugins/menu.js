@@ -38,7 +38,7 @@ let madeMenu = `╭━━━━∙⋆⋅⋆∙━ ─┉─ • ─┉─⊷
 
 *ᴄʀᴇᴀᴛᴇᴅ ʙʏ sɪʟᴇɴᴛ ʟᴏᴠᴇʀ⁴³²👨🏻‍💻*
 
-*┌─〈 config.BOT_NAME 〉─◆*
+*┌─〈 const bot_name = config.BOT_NAME 〉─◆*
 *│╭─────────────···▸*
 *┴│▸*
 *❖│▸* *ʀᴜɴᴛɪᴍᴇ* : ${runtime(process.uptime())}
