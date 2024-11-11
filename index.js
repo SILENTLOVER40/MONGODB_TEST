@@ -200,7 +200,7 @@ m.react("🦋")
 }
 //==========================public react===============//
 if (!isReact && senderNumber !== botNumber) {
-    m.react = config.PUBLIC_REACT
+    m.react("🫂");
 }
 if (!isReact && senderNumber === botNumber) {
     m.react("🤗");
