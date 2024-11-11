@@ -23,8 +23,8 @@ cmd({
 },
 
 async(conn, mek, m,{from, l, quoted, body, isCmd, umarmd, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
-
 try{
+let readMore = more.repeat(850);
 let madeMenu = `╭━━━━∙⋆⋅⋆∙━ ─┉─ • ─┉─⊷
 
 *⇆ ʜɪɪ ᴍʏ ᴅᴇᴀʀ ғʀɪᴇɴᴅ ⇆*
@@ -38,7 +38,7 @@ let madeMenu = `╭━━━━∙⋆⋅⋆∙━ ─┉─ • ─┉─⊷
 
 *ᴄʀᴇᴀᴛᴇᴅ ʙʏ sɪʟᴇɴᴛ ʟᴏᴠᴇʀ⁴³²👨🏻‍💻*
 
-*┌─〈 const bot_name = config.BOT_NAME 〉─◆*
+*┌─〈 SILENT-SOBX-MD 〉─◆*
 *│╭─────────────···▸*
 *┴│▸*
 *❖│▸* *ʀᴜɴᴛɪᴍᴇ* : ${runtime(process.uptime())}
@@ -51,6 +51,8 @@ let madeMenu = `╭━━━━∙⋆⋅⋆∙━ ─┉─ • ─┉─⊷
 *│╰────────────···▸▸*
 *└──────────────···▸*
 *♡︎•━━━━━━☻︎━━━━━━•♡︎*
+
+ ${readMore}
 
 *╭────❒⁠⁠⁠⁠* *📥 DOWNLOADER-CMD 📥* *❒⁠⁠⁠⁠* 
 *┋* *.ғʙ <ᴜʀʟ>*
@@ -174,29 +176,10 @@ let madeMenu = `╭━━━━∙⋆⋅⋆∙━ ─┉─ • ─┉─⊷
 ╘✦•·········•••••••••············•✦ 
 `
 
-await conn.sendMessage(from, { text: madeMenu ,
-  contextInfo: {
-    mentionedJid: [ '' ],
-    groupMentions: [],
-    forwardingScore: 999,
-    isForwarded: false,
-    forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363232588171807@newsletter',
-      newsletterName: "SILENTLOVER432",
-      serverMessageId: 999
-    },
-externalAdReply: { 
-title: '◀︎SILENT-SOBX-MD MENU▶︎',
-body: `${pushname}`,
-mediaType: 1,
-sourceUrl: "https://whatsapp.com/channel/0029VaHO5B0G3R3cWkZN970s" ,
-thumbnailUrl: "https://files.catbox.moe/h5ddpq.jpg" ,
-renderLargerThumbnail: true,
-showAdAttribution: true
-}
-}}, { quoted: mek})
+await conn.sendMessage(from,{image:{url:config.ALIVE_IMG},caption:madeMenu},{quoted:mek})
+
 }catch(e){
 console.log(e)
 reply(`${e}`)
 }
-});
+})
