@@ -23,6 +23,12 @@
       "description": "you can use this public mongodb url if you have your personal key So you can use him.",
       "required": true,
       "value": "HIIIIIII AND MORE"
+    }, 
+
+    "BOT_NAME": {
+      "description": "you can use this public mongodb url if you have your personal key So you can use him.",
+      "required": true,
+      "value": "LOVE KING"
     } 
 
 },
