@@ -25,10 +25,10 @@
       "value": "HIIIIIII AND MORE"
     }, 
 
-    "BOT_NAME": {
+    "PUBLIC_REACT": {
       "description": "you can use this public mongodb url if you have your personal key So you can use him.",
       "required": true,
-      "value": "SILENT LOVER4"
+      "value": "😋"
     }
 },
 
