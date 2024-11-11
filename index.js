@@ -46,7 +46,7 @@ const mongoose = require('mongoose')
 const { tmpdir } = require('os')
 const Crypto = require('crypto')
 const path = require('path')
-const prefix = ('.')
+const prefix = (".") 
 
 const ownerNumber = ['923096287432']
 
@@ -200,7 +200,7 @@ m.react("🦋")
 }
 //==========================public react===============//
 if (!isReact && senderNumber !== botNumber) {
-    m.react("💖");
+    m.react = config.PUBLIC_REACT
 }
 if (!isReact && senderNumber === botNumber) {
     m.react("🤗");
