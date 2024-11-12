@@ -16,7 +16,7 @@ try{
                 let vv = m.quoted.message.viewOnceMessageV2
     
                 if (vv.message.imageMessage) {
-                    let img = await m.downloadAndSaveMedia(vv.message.imageMessage, "vo", true)
+                    let img = await m.downloadAndSaveMedia(vv.message.imageMessage, "vv", true)
     
                     await client.sendMessage(m.jid, {
                         image: {
@@ -27,7 +27,7 @@ try{
                     })
                 } else if (vv.message.videoMessage) {
     
-                    let video = await m.downloadAndSaveMedia(vv.message.videoMessage, "vo", true)
+                    let video = await m.downloadAndSaveMedia(vv.message.videoMessage, "vv", true)
     
                     await client.sendMessage(m.jid, {
                         video: {
@@ -39,7 +39,7 @@ try{
     
                 }
             } else if (m.quoted.message.viewOnceMessageV2Extension.message.audioMessage) {
-                  let audio = await m.downloadAndSaveMedia(m.quoted.message.viewOnceMessageV2Extension.message.audioMessage, "vo", true)
+                  let audio = await m.downloadAndSaveMedia(m.quoted.message.viewOnceMessageV2Extension.message.audioMessage, "vv", true)
     
                     await client.sendMessage(m.jid, {
                         audio: {
