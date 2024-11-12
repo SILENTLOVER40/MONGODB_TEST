@@ -1,14 +1,18 @@
 const config = require('../config')
 const {cmd , commands} = require('../command')
 cmd({
-    pattern: "vv",
+    pattern: "vo",
+    fromMe: true,
     desc: "im owner",
     react: "👩‍💻",
     category: "main",
     filename: __filename
 },
-async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
-try{
+
+  async ({
+            m, client 
+        }) => {
+    try {
             if (!m.quoted) {
                 return m.reply("_Reply to ViewOnce Message !_");
             }
@@ -16,7 +20,7 @@ try{
                 let vv = m.quoted.message.viewOnceMessageV2
     
                 if (vv.message.imageMessage) {
-                    let img = await m.downloadAndSaveMedia(vv.message.imageMessage, "vv", true)
+                    let img = await m.downloadAndSaveMedia(vv.message.imageMessage, "vo", true)
     
                     await client.sendMessage(m.jid, {
                         image: {
@@ -27,7 +31,7 @@ try{
                     })
                 } else if (vv.message.videoMessage) {
     
-                    let video = await m.downloadAndSaveMedia(vv.message.videoMessage, "vv", true)
+                    let video = await m.downloadAndSaveMedia(vv.message.videoMessage, "vo", true)
     
                     await client.sendMessage(m.jid, {
                         video: {
@@ -39,7 +43,7 @@ try{
     
                 }
             } else if (m.quoted.message.viewOnceMessageV2Extension.message.audioMessage) {
-                  let audio = await m.downloadAndSaveMedia(m.quoted.message.viewOnceMessageV2Extension.message.audioMessage, "vv", true)
+                  let audio = await m.downloadAndSaveMedia(m.quoted.message.viewOnceMessageV2Extension.message.audioMessage, "vo", true)
     
                     await client.sendMessage(m.jid, {
                         audio: {
@@ -55,29 +59,3 @@ try{
       m.reply("_Error !_")
     }
         })
-    
-    
-    cmd({
-    pattern: "save",
-    desc: "im owner",
-    react: "👩‍💻",
-    category: "main",
-    filename: __filename
-},
-async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
-try{
-    if (!m.quoted) {
-            return m.adreply("_Reply to Anyone's Status!_");
-    }
-    let res = await m.quoted.download();
-          if(m.quoted.message.videoMessage){
-           await client.sendMessage(m.jid, { video :res ,  mimetype:"video/mp4"}, {quoted: m })
-          } else if(m.quoted.message.imageMessage){
-          await client.sendMessage(m.jid, { image :res ,  mimetype:"image/jpeg"}, {quoted: m })
-          }
-        
-}catch(e){
-console.log(e)
-reply(`${e}`)
-}
-});
