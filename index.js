@@ -27,6 +27,15 @@ fetchLatestBaileysVersion,
 Browsers
 } = require('@whiskeysockets/baileys')
 
+conn.on('connection-update', (update) => {
+  const { lastSeen, presence } = update;
+  if (lastSeen && presence === 'available') {
+    // Set presence to offline
+    if (config.ALLWAYS_OFFLINE === 'true') {
+      conn.presence = 'unavailable';
+    }
+  }
+});
 
 const l = console.log
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson } = require('./lib/functions')
