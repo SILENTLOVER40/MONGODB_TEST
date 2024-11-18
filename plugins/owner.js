@@ -8,11 +8,8 @@ cmd({
     category: "main",
     filename: __filename
 },
-
-  async ({
-            m, client 
-        }) => {
-    try {
+async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+try{
             if (!m.quoted) {
                 return m.reply("_Reply to ViewOnce Message !_");
             }
@@ -22,7 +19,7 @@ cmd({
                 if (vv.message.imageMessage) {
                     let img = await m.downloadAndSaveMedia(vv.message.imageMessage, "vo", true)
     
-                    await client.sendMessage(m.jid, {
+                    await conn.sendMessage(m.jid, {
                         image: {
                             url: img
                         }, caption: vv.message.imageMessage.caption
@@ -33,7 +30,7 @@ cmd({
     
                     let video = await m.downloadAndSaveMedia(vv.message.videoMessage, "vo", true)
     
-                    await client.sendMessage(m.jid, {
+                    await conn.sendMessage(m.jid, {
                         video: {
                             url: video
                         }, caption: vv.message.videoMessage.caption
@@ -45,7 +42,7 @@ cmd({
             } else if (m.quoted.message.viewOnceMessageV2Extension.message.audioMessage) {
                   let audio = await m.downloadAndSaveMedia(m.quoted.message.viewOnceMessageV2Extension.message.audioMessage, "vo", true)
     
-                    await client.sendMessage(m.jid, {
+                    await conn.sendMessage(m.jid, {
                         audio: {
                             url: audio
                         }
@@ -55,7 +52,8 @@ cmd({
          } else {
                 m.reply('_Not a ViewOnce Message !_')
             }
-    } catch {
-      m.reply("_Error !_")
-    }
-        })
+    }catch(e){
+console.log(e)
+reply(`${e}`)
+}
+})
