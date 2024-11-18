@@ -14,5 +14,5 @@ AUTO_REPLY: process.env.AUTO_REPLY || "false",
 ALIVE_IMG: process.env.ALIVE_IMG || "https://telegra.ph/file/2a06381b260c3f096a612.jpg",
 ALIVE_MSG: process.env.ALIVE_MSG || "HII IM ONLINE 😊♻️",
 BOT_NAME: process.env.BOT_NAME || "SILENT LOVER",
-ALLWAYS_OFFLINE: process.env.ALLWAYS_OFFLINE || "true",
+
 };
