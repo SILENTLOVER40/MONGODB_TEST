@@ -77,6 +77,7 @@ const conn = makeWASocket({
         logger: P({ level: 'silent' }),
         printQRInTerminal: false,
         browser: Browsers.macOS("Firefox"),
+        markOnlineOnConnect: false,
         syncFullHistory: true,
         auth: state,
         version
