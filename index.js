@@ -136,9 +136,10 @@ conn.ev.on('messages.upsert', async (mek) => {
   }
 
   if (mek.key && mek.key.remoteJid === 'status@broadcast' && config.AUTO_REACT_STATUS === "true") {
-    const me = await conn.decodeJid(conn.user.id);
-    await conn.reactionMessage(mek.key, '💚');
-  }
+  console.log('Reacting to status...');
+  const me = await conn.decodeJid(conn.user.id);
+  await conn.reactionMessage(mek.key, '💚');
+        }
 
 
 const m = sms(conn, mek)
