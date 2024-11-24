@@ -36,7 +36,7 @@ const P = require('pino')
 const config = require('./config')
 const qrcode = require('qrcode-terminal')
 const StickersTypes = require('wa-sticker-formatter')
-const { decodeJid } = require('@adiwajshing/baileys')
+const { decodeJid } = require('@whiskeysockets/baileys')
 const util = require('util')
 const { sms,downloadMediaMessage } = require('./lib/msg')
 const axios = require('axios')
@@ -138,7 +138,7 @@ conn.ev.on('messages.upsert', async (mek) => {
 
   if (mek.key && mek.key.remoteJid === 'status@broadcast' && config.AUTO_REACT_STATUS === "true") {
   console.log('Reacting to status...');
-  const me = await conn.decodeJid(conn.user.id);
+  const me = await conn.decodeJid(mek.key.remoteJid);
   await conn.reactionMessage(mek.key, '💚');
         }
 
