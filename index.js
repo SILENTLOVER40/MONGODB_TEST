@@ -126,15 +126,6 @@ conn.sendMessage(conn.user.id, { image: { url: `https://files.catbox.moe/h5ddpq.
 })
 conn.ev.on('creds.update', saveCreds)  
 
-conn.ev.on('messages.upsert', async (mek) => {
-const { WAConnection, MessageType } = require('@whiskeysockets/baileys');
-
-// Create a new connection
-const conn = new WAConnection();
-
-// Connect to WhatsApp
-conn.connect();
-
 // Listen for incoming messages
 conn.on('message', async (message) => {
   // Check if the message is a status update
