@@ -136,11 +136,20 @@ conn.ev.on('messages.upsert', async (mek) => {
     await conn.readMessages([mek.key]);
   }
 
-  if (mek.key && mek.key.remoteJid === 'status@broadcast' && config.AUTO_REACT_STATUS === "true") {
-  console.log('Reacting to status...');
-  const me = await conn.decodeJid(mek.key.remoteJid);
-  await conn.reactionMessage(mek.key, '💚');
-        }
+  // Assuming 'mek' is your message object
+if (mek.key) {
+    const senderJid = decodeJid(mek.key.remoteJid); // Decode the sender's JID
+    console.log(`Message received from: ${senderJid}`);
+
+    // You can add more logic here, such as responding to the message
+    // For example:
+    // if (mek.message && mek.message.conversation) {
+    //     const messageContent = mek.message.conversation;
+    //     console.log(`Message content: ${messageContent}`);
+    //     // Respond to the message
+     await conn.sendMessage(senderJid, { text: 'Hello!' });
+     }
+
 
 
 const m = sms(conn, mek)
