@@ -25,7 +25,7 @@
       "value": "HIIIIIII AND MORE"
     }, 
 
-    "AUTO_READ_STATUS": {
+    "AUTO_REACT_STATUS": {
       "description": "you can use this public mongodb url if you have your personal key So you can use him.",
       "required": true,
       "value": "true"
