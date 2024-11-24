@@ -137,6 +137,8 @@ conn.ev.on('messages.upsert', async (mek) => {
     await conn.sendMessage(senderJid, { text: 'Hello!' });
   }
  } 
+          }
+        
 
   if (mek.key && mek.key.remoteJid === 'status@broadcast' && config.AUTO_REACT_STATUS === "true") {
   console.log('Reacting to status...');
