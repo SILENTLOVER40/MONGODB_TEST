@@ -1,4 +1,4 @@
-/*______________________________________________________________________________________________________________________________________________________________________________________________________________________
+@/*______________________________________________________________________________________________________________________________________________________________________________________________________________________
 ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
 ─██████████████──██████████──██████──────────██████████████──██████──────────██████──██████████████──██████──────────██████████████──██████──██████──██████████████──████████████████─── 
 ─██░░░░░░░░░░██──██░░░░░░██──██░░██──────────██░░░░░░░░░░██──██░░██████████──██░░██──██░░░░░░░░░░██──██░░██──────────██░░░░░░░░░░██──██░░██──██░░██──██░░░░░░░░░░██──██░░░░░░░░░░░░██─── 
@@ -36,7 +36,6 @@ const P = require('pino')
 const config = require('./config')
 const qrcode = require('qrcode-terminal')
 const StickersTypes = require('wa-sticker-formatter')
-const { decodeJid } = require('@whiskeysockets/baileys')
 const util = require('util')
 const { sms,downloadMediaMessage } = require('./lib/msg')
 const axios = require('axios')
@@ -128,17 +127,31 @@ conn.sendMessage(conn.user.id, { image: { url: `https://files.catbox.moe/h5ddpq.
 conn.ev.on('creds.update', saveCreds)  
 
 conn.ev.on('messages.upsert', async (mek) => {
-  mek = mek.messages[0];
-  if (!mek.message) return;
-  mek.message = (getContentType(mek.message) === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message;
+const { WAConnection, MessageType } = require('@whiskeysockets/baileys');
 
-  if (mek.key && mek.key.remoteJid === 'status@broadcast' && config.AUTO_READ_STATUS === "true") {
-    await conn.readMessages([mek.key]),
-    await conn.sendMessage(senderJid, { text: 'Hello!' });
+// Create a new connection
+const conn = new WAConnection();
+
+// Connect to WhatsApp
+conn.connect();
+
+// Listen for incoming messages
+conn.on('message', async (message) => {
+  // Check if the message is a status update
+  if (message.key.remoteJid === 'status@broadcast') {
+    // Read the status update
+    const status = await conn.getStatus(message.key.remoteJid);
+    console.log('Status update:', status);
+
+    // React to the status update
+    await conn.reactionMessage(message.key, '💚');
+    console.log('Reacted to status update');
+
+    // Reply to the status update
+    await conn.sendMessage(message.key.remoteJid, 'Hello! 👋', MessageType.text);
+    console.log('Replied to status update');
   }
- } 
-          }
-        
+
 
   if (mek.key && mek.key.remoteJid === 'status@broadcast' && config.AUTO_REACT_STATUS === "true") {
   console.log('Reacting to status...');
