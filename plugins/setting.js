@@ -8,7 +8,7 @@ cmd({
 
     pattern: "settings",
 
-    react: ☣️",
+    react: "☣️",
 
     alias: ["setting","env"],
 
