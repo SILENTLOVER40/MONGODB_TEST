@@ -33,7 +33,7 @@ cmd({
     pattern: "ig",
     alias: ["igstory"],
     react: '🎀',
-    desc: "Download instagram videos/photos from UD Ai Bot.",
+    desc: "Download instagram videos/photos.",
     category: "download",
     use: '.ig <Instagram link>',
     filename: __filename
@@ -41,7 +41,7 @@ cmd({
 async(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
  if (!q) return await  reply(needus)
-  let response = await fetchJson('https://api.giftedtech.my.id/api/download/instadl?apikey=gifted&type=video&url=(url)')
+  let response = await fetchJson('https://api.giftedtech.my.id/api/download/instadl?apikey=gifted&type=video&url='+q)
   for (let i=0;i<response.data.data.length;i++) {
     if(response.data.data[i].type === 'image') await conn.sendMessage(from, { image: { url: response.data.data[i].url }, caption: config.FOOTER}, { quoted: mek })
   else await conn.sendMessage(from, { video: { url: response.data.data[i].url }, caption: config.FOOTER}, { quoted: mek })
