@@ -70,4 +70,38 @@ cmd({
         console.error(error);
         reply("An error occurred while processing the message.");
     }
+})
+
+cmd({ on: "chatUpdate" }, async (conn, update) => {
+  try {
+    if (update.type === "delete") {
+      const deletedMessage = update.message;
+      const chatId = update.chat;
+      const participant = deletedMessage.participant || deletedMessage.sender;
+      const messageType = deletedMessage.message || null;
+      const messageText = messageType ? messageType.text : null;
+      console.log(`Message deleted by ${participant} in chat ${chatId}`);
+      console.log(`Deleted message text: ${messageText}`);
+      // ... rest of your code ...
+    } else if (update.type === "edit") {
+      const editedMessage = update.message;
+      const chatId = update.chat;
+      const participant = editedMessage.participant || editedMessage.sender;
+      const messageType = editedMessage.message || null;
+      const messageText = messageType ? messageType.text : null;
+      console.log(`Message edited by ${participant} in chat ${chatId}`);
+      console.log(`Edited message text: ${messageText}`);
+      // ... rest of your code ...
+    } else if (update.type === "archive") {
+      const archivedChat = update.chat;
+      console.log(`Chat archived: ${archivedChat}`);
+      // ... rest of your code ...
+    } else if (update.type === "unarchive") {
+      const unarchivedChat = update.chat;
+      console.log(`Chat unarchived: ${unarchivedChat}`);
+      // ... rest of your code ...
+    }
+  } catch (error) {
+    console.error("Error handling chat update event:", error);
+  }
 });
