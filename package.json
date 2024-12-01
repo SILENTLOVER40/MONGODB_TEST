@@ -8,7 +8,7 @@
     "stop": "pm2 stop SILENT-SOBX-MD",
     "restart": "pm2 restart SILENT-SOBX-MD"
   },
-  "dependencies": {
+"dependencies": {
         "@adiwajshing/keyed-db": "^0.2.4",
         "@black-king/temp-mail-gen": "1.0.1",
         "@blackamda/song_video_dl": "1.1.0",
@@ -31,11 +31,12 @@
         "@whiskeysockets/baileys": "git+https://github.com/prabathLK/Baileys-6.0.0.git#master",
         "api-dylux": "latest",
         "aptoide-scraper": "1.0.1",
-        "awesome-phonenumber": "6.2.0",
-        "axios": "^1.6.7",
+        "awesome-phonenumber": "7.2.0",
+        "axios": "^1.7.8",
         "bard-ai": "2.0.3",
         "betabotz-tools": "0.0.6",
         "btch-downloader": "2.3.1-alpha",
+        "buffer": "6.0.3",
         "buffer-url": "1.0.0",
         "cc-suite": "1.0.5",
         "chart.js": "^4.4.0",
@@ -75,8 +76,6 @@
         "megajs": "1.1.0",
         "mfiredlcore-vihangayt": "^1.0.0",
         "mime-types": "2.1.35",
-        "nayan-media-downloader": "2.4.9",
-        "nayan-server": "2.4.2",
         "nima-wabeta-info": "1.0.5",
         "node-fetch": "^2.6.1",
         "pastebin-js": "latest",
