@@ -21,6 +21,10 @@ let status = `*╭──────────●●►*
 
 *_HOSTNAME:➠_* ${os.hostname()}
 
+
+PLATFORM:➠
+${process.env.DYNO ? "Heroku" : "Localhost"}
+
 *_OWNER:➠_* *SILENT LOVER⁴³²*
 *╰──────────●●►*
 `
