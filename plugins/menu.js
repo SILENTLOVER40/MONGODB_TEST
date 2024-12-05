@@ -1,18 +1,17 @@
-const config = require('../config')
-const axios = require('axios')
-const os = require("os")
-const { cmd, commands } = require('../command')
-const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')
+const config = require('../config');
+const axios = require('axios');
+const os = require("os");
+const { cmd, commands } = require('../command');
+const { getBuffer, runtime, fetchJson } = require('../lib/functions');
+
 cmd({
     pattern: "menu",
     desc: "menu the bot",
     react: "📜",
     category: "main"
-},
-async(conn, mek, m,{from, l, quoted, body, isCmd, umarmd, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
-
-try{
-        let desc = `*👋 Hello ${pushname}*
+}, async (conn, mek, m, { from, quoted, pushname, reply }) => {
+    try {
+        const desc = `*👋 سلام ${pushname}*
 
 *➟➟➟➟➟➟➟➟➟➟➟➟*
 │ʀᴜɴᴛɪᴍᴇ : ${runtime(process.uptime())}
@@ -27,7 +26,7 @@ try{
 *├ 5* • DOWNLOAD
 *├ 6* • MAIN
 *├ 7* • GROUP
-*├ 8* • DIREC LINK 
+*├ 8* • DIRECT LINK 
 *├ 9* • MOVIE
 *╰╼╼╼╼╼╼╼╼╼╼*
 
@@ -35,16 +34,18 @@ _*🌟 Reply with the Number you want to select*_
 
 > POWERED BY SILENTLOVER432`;
 
-        const vv = await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b260c3f096a612.jpg"}, caption: desc }, { quoted: mek });
+        const sentMessage = await conn.sendMessage(from, {
+            image: { url: "https://telegra.ph/file/2a06381b260c3f096a612.jpg" },
+            caption: desc
+        }, { quoted: mek });
 
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
-            if (!msg.message || !msg.message.extendedTextMessage) return;
+            if (!msg.message || msg.key.remoteJid !== from) return;
 
-            const selectedOption = msg.message.extendedTextMessage.text.trim();
-
-            if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === vv.key.id) {
-                switch (selectedOption) {
+            const selectedOption = msg.message.conversation || msg.message.extendedTextMessage?.text;
+            if (msg.message.extendedTextMessage?.contextInfo?.stanzaId === sentMessage.key.id) {
+                switch (selectedOption?.trim()) {
                     case '1':
                         reply(`*◈╾──────OWNER COMMAND LIST──────╼◈*
 
@@ -240,16 +241,12 @@ _*🌟 Reply with the Number you want to select*_
 
 
                         break;
-                    default:
-                        reply("*Please select a valid option🔴*");
                 }
-
             }
         });
-
     } catch (e) {
         console.error(e);
-        await conn.sendMessage(from, { react: { text: '❌', key: mek.key } })
-        reply('An error occurred while processing your request.');
+        await conn.sendMessage(from, { react: { text: '❌', key: mek.key } });
+        reply('Problem.');
     }
 });
