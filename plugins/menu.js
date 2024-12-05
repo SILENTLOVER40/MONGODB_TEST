@@ -1,24 +1,25 @@
-const config = require('../config');
-const axios = require('axios');
-const os = require("os");
-const { cmd, commands } = require('../command');
-const { getBuffer, runtime, fetchJson } = require('../lib/functions');
+const config = require('../config')
+const {cmd , commands} = require('../command')
+const os = require("os")
+const {runtime} = require('../lib/functions')
+const axios = require('axios')
 
 cmd({
     pattern: "menu",
     desc: "menu the bot",
     react: "📜",
     category: "main"
-}, async (conn, mek, m, { from, quoted, pushname, reply }) => {
-    try {
-        const desc = `*👋 سلام ${pushname}*
+},
+async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+try{
+        let desc = `*👋 Hello ${pushname}*
 
 *➟➟➟➟➟➟➟➟➟➟➟➟*
 │ʀᴜɴᴛɪᴍᴇ : ${runtime(process.uptime())}
 │ʀᴀᴍ ᴜꜱᴀɢᴇ : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
 *➟➟➟➟➟➟➟➟➟➟➟➟*
 
-*╭╼╼╼╼╼╼╼╼╼╼*
+*╭┈───────────────•*
 *├ 1* • OWNER
 *├ 2* • TRANSLATE
 *├ 3* • AI
@@ -26,227 +27,223 @@ cmd({
 *├ 5* • DOWNLOAD
 *├ 6* • MAIN
 *├ 7* • GROUP
-*├ 8* • DIRECT LINK 
+*├ 8* • DIREC LINK 
 *├ 9* • MOVIE
-*╰╼╼╼╼╼╼╼╼╼╼*
+*╰┈───────────────•*
 
 _*🌟 Reply with the Number you want to select*_
 
 > POWERED BY SILENTLOVER432`;
 
-        const sentMessage = await conn.sendMessage(from, {
-            image: { url: "https://telegra.ph/file/2a06381b260c3f096a612.jpg" },
-            caption: desc
-        }, { quoted: mek });
+    const vv = await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b260c3f096a612.jpg"}, caption: desc }, { quoted: mek });
 
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
-            if (!msg.message || msg.key.remoteJid !== from) return;
+            if (!msg.message || !msg.message.extendedTextMessage) return;
 
-            const selectedOption = msg.message.conversation || msg.message.extendedTextMessage?.text;
-            if (msg.message.extendedTextMessage?.contextInfo?.stanzaId === sentMessage.key.id) {
-                switch (selectedOption?.trim()) {
+            const selectedOption = msg.message.extendedTextMessage.text.trim();
+
+            if (msg.message.extendedTextMessage.contextInfo && msg.message.extendedTextMessage.contextInfo.stanzaId === vv.key.id) {
+                switch (selectedOption) {
                     case '1':
-                        reply(`*◈╾──────OWNER COMMAND LIST──────╼◈*
-
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *restart* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *f* 
-*➟➟➟➟➟➟➟➟_📑_*
+                        reply(`
+*[ • 👨‍💻 OWNER-CMD 👨‍💻 ‎• ]*
+*╭┈───────────────•*
+*┋* *.ᴜᴘᴅᴀᴛᴇᴄᴍᴅ*
+*┋* *.sᴇᴛᴛɪɴɢs*
+*┋* *.ᴏᴡɴᴇʀ*
+*┋* *.ʀᴇᴘᴏ*
+*┋* *.ꜱʏꜱᴛᴇᴍ*
+*┋* *.ꜱᴛᴀᴛᴜꜱ*
+*┋* *.ʙʟᴏᴄᴋ*
+*┋* *.ᴜɴʙʟᴏᴄᴋ*
+*┋* *.sʜᴜᴛᴅᴏᴡɴ*
+*┋* *.ᴄʟᴇᴀʀᴄʜᴀᴛs*
+*┋* *.sᴇᴛᴘᴘ*
+*┋* *.ʙʀᴏᴀᴅᴄᴀsᴛ*
+*┋* *.ᴊɪᴅ*
+*┋* *.ɢᴊɪᴅ*
+*┋* *.ʀᴇꜱᴛᴀʀᴛ*
+*╰┈───────────────•*
 
 > POWERED BY SILENTLOVER432`);
                         break;
                     case '2':               
-                        reply(`*◈╾──────TRANSLATE COMMAND LIST──────╼◈*
-
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *trt* 
-*➟➟➟➟➟➟➟➟_📑_*
+                        reply(`
+*[ • 🎡 CONVERTER-CMD 🎡 ‎• ]*
+*╭┈───────────────•*
+*┋* *.sᴛɪᴄᴋᴇʀ*
+*┋* *.ᴛʀᴛ <ᴛᴇxᴛ>*
+*┋* *.ᴛᴛs <ᴛᴇxᴛ>*
+*╰┈───────────────•*                            
 
 > POWERED BY SILENTLOVER432`);
                         break;
                     case '3':               
-                        reply(`*◈╾──────AI COMMAND LIST──────╼◈*
+                        reply(`
 
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *ai* 
-*➟➟➟➟➟➟➟➟_📑_*
+*[ • 🧠 AI-CMD 🧠 ‎• ]*
+*╭┈───────────────•*
+*┋* *.ɢᴘᴛ <ᴛᴇxᴛ>*
+*┋* *.ᴀɪ <ᴛᴇxᴛ>*
+*┋* *.ʙᴏᴛ <ᴛᴇxᴛ>*
+*╰┈───────────────•*
 
 > POWERED BY SILENTLOVER432`);
                         break;
                     case '4':               
-                        reply(`*◈╾──────SEARCH COMMAND LIST──────╼◈*
+                        reply(`
 
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *yts* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *github* 
-*➟➟➟➟➟➟➟➟_📑_*
-
+*[ • 🔎 SEARCH-CMD 🔍 ‎• ]*
+*╭┈───────────────•*
+*┋* *.ʏᴛꜱ  <ᴛᴇxᴛ>*
+*┋* *.ʏᴛᴀ <ᴜʀʟ>*
+*┋* *.ʟᴏʟɪ <ᴛᴇxᴛ>*
+*┋* *.ᴍᴏᴠɪᴇɪɴғᴏ <ᴛᴇxᴛ>*
+*┋* *.ɪᴍɢ <ᴛᴇxᴛ>*
+*┋* *.ᴡᴇᴀᴛʜᴇʀ <ᴄɪᴛʏ>*
+*╰┈───────────────•*
 > POWERED BY SILENTLOVER432`);
                         break;
                     case '5':               
-                        reply(`*◈╾──────DOWNLOAD COMMAND LIST──────╼◈*
+                        reply(`
 
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *apk* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *twitter* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *gdrive* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *mediafire* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *fb* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *td* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *song* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *video* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *dl* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *dl2* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *mega* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *tiktok* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *img* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *x* 
-*➟➟➟➟➟➟➟➟_📑_*
+*[ • 📥 DOWNLOADER-CMD 📥 ‎• ]*
+*╭┈───────────────•*
+*┋* *.ғʙ <ᴜʀʟ>*
+*┋* *.ɪɴꜱᴛᴀ <ᴜʀʟ>*
+*┋* *.ᴠɪᴅᴇᴏ <ᴜʀʟ>*
+*┋* *.ɢᴅʀɪᴠᴇ <ᴜʀʟ>*
+*┋* *.ᴛᴡɪᴛᴛᴇʀ <ᴜʀʟ>*
+*┋* *.ᴛᴛ<ᴜʀʟ>*
+*┋* *.ᴍᴇᴅɪᴀғɪʀᴇ <ᴜʀʟ>*
+*┋* *.ꜱᴏɴɢ <ϙᴜᴇʀʏ>*
+*┋* *.ᴘʟᴀʏ <ᴜʀʟ>*
+*┋* *.ᴠɪᴅᴇᴏ <ϙᴜᴇʀʏ>*
+*┋* *.ᴠɪᴅᴇᴏ2 <ᴜʀʟ>*
+*┋* *.ɪᴍɢ <ϙᴜᴇʀʏ>*
+*┋* *.ᴀᴘᴋ <ɴᴀᴍᴇ>*
+*┋* *.ᴅᴀʀᴀᴍᴀ <ᴛɪᴛᴛʟᴇ>*
+*┋* *.ᴘʟᴀʏ2 <ᴛɪᴛᴛʟᴇ>*
+*┋* *.ʙᴀɪsᴄᴏᴘᴇ <ᴜʀʟ>*
+*┋* *.ɢɪɴɪsɪsɪʟᴀ <ᴛɪᴛᴛʟᴇ>*
+*╰┈───────────────•*
 
 > POWERED BY SILENTLOVER432`);
                         break;
                     case '6':               
-                        reply(`*◈╾──────MAIN COMMAND LIST──────╼◈*
+                        reply(`
 
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *alive* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *menu* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *team* 
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *system* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *ping* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *vv* 
-*➟➟➟➟➟➟➟➟_📑_*
+*[ • 👨‍💻 OWNER-CMD 👨‍💻 ‎• ]*
+*╭┈───────────────•*
+*┋* *.ᴜᴘᴅᴀᴛᴇᴄᴍᴅ*
+*┋* *.sᴇᴛᴛɪɴɢs*
+*┋* *.ᴏᴡɴᴇʀ*
+*┋* *.ʀᴇᴘᴏ*
+*┋* *.ꜱʏꜱᴛᴇᴍ*
+*┋* *.ꜱᴛᴀᴛᴜꜱ*
+*┋* *.ʙʟᴏᴄᴋ*
+*┋* *.ᴜɴʙʟᴏᴄᴋ*
+*┋* *.sʜᴜᴛᴅᴏᴡɴ*
+*┋* *.ᴄʟᴇᴀʀᴄʜᴀᴛs*
+*┋* *.sᴇᴛᴘᴘ*
+*┋* *.ʙʀᴏᴀᴅᴄᴀsᴛ*
+*┋* *.ᴊɪᴅ*
+*┋* *.ɢᴊɪᴅ*
+*┋* *.ʀᴇꜱᴛᴀʀᴛ*
+*╰┈───────────────•*
 
 > POWERED BY SILENTLOVER432`);
                         break;
                     case '7':               
-                        reply(`*◈╾──────GROUP COMMAND LIST──────╼◈*
+                        reply(`
 
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *promote* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *demote* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *kick* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *add* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *admins* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *tagall* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *getpic* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *lock* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *upgname* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *getdec* 
-*➟➟➟➟➟➟➟➟_📑_*
+*[ • 👥 GROUP-CMD 👥 ‎• ]*
+*╭┈───────────────•*
+*┋* *.ʀᴇᴍᴏᴠᴇ <ʀᴇᴘʟʏ ғᴏʀ ᴅᴇʟᴇᴛᴇ sᴍs>*
+*┋* *.ᴅᴇʟᴇᴛᴇ <ʀᴇᴘʟʏ ғᴏʀ ᴅᴇʟᴇᴛᴇ sᴍs>*
+*┋* *.ᴀᴅᴅ*
+*┋* *.ᴋɪᴄᴋ*
+*┋* *.sᴇᴛɢᴏᴏᴅʙʏᴇ <ᴛᴇxᴛ>*
+*┋* *.sᴇᴛᴡᴇʟᴄᴏᴍᴇ <ᴛᴇxᴛ>*
+*┋* *.ᴘʀᴏᴍᴏᴛᴇ*
+*┋* *.ᴅᴇᴍᴏᴛᴇ*
+*┋* *.ᴛᴀɢᴀʟʟ*
+*┋* *.ɢᴇᴛᴘɪᴄ*
+*┋* *.ɪɴᴠɪᴛᴇ*
+*┋* *.ʀᴇᴠᴏᴋᴇ*
+*┋* *.ᴊᴏɪɴʀᴇǫᴜᴇsᴛs*
+*┋* *.ᴀʟʟʀᴇǫ*
+*┋* *.ᴍᴜᴛᴇ*
+*┋* *.ᴜɴᴍᴜᴛᴇ*
+*┋* *.ʟᴏᴄᴋɢᴄ*
+*┋* *.ᴜɴʟᴏᴄᴋɢᴄ*
+*┋* *.ʟᴇᴀᴠᴇ*
+*┋* *.ᴜᴘᴅᴀᴛᴇɢɴᴀᴍᴇ*
+*┋* *.ᴜᴘᴅᴀᴛᴇɢᴅᴇsᴄ*
+*┋* *.ᴊᴏɪɴ*
+*┋* *.ʜɪᴅᴇᴛᴀɢ*
+*┋* *.ɢɪɴғᴏ*
+*┋* *.ᴅɪsᴀᴘᴘᴇᴀʀ ᴏɴ*
+*┋* *.ᴅɪsᴀᴘᴘᴇᴀʀ ᴏғғ*
+*┋* *.ᴅɪsᴀᴘᴘᴇᴀʀ 7ᴅ 24ʜ 90ᴅ*
+*┋* *.sᴇɴᴅᴅᴍ*
+*╰┈───────────────•*
 
 > POWERED BY SILENTLOVER432`);
                        break;
                     case '8':               
-                        reply(`*◈╾──────DIRECT LINK DOWNLOAD COMMAND LIST──────╼◈*
+                        reply(`
 
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *upmv*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *upme* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *upzip* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *mkv* 
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *uptv* 
-*➟➟➟➟➟➟➟➟_📑_*
+*[ • 📃 INFO-CMD 📃 ‎• ]*
+*╭┈───────────────•*
+*┋* *.ᴍᴇɴᴜ*
+*┋* *.ᴍᴇɴᴜ2*
+*┋* *.ᴍᴇɴᴜ3*
+*┋* *.ᴀʙᴏᴜᴛ*
+*┋* *.sᴄʀɪᴘᴛ*
+*┋* *.ʀᴇᴘᴏ*
+*┋* *.ᴀʟɪᴠᴇ*
+*┋* *.ʙᴏᴛɪɴꜰᴏ*
+*┋* *.ꜱᴛᴀᴛᴜꜱ*
+*┋* *.ꜱᴜᴘᴘᴏʀᴛ*
+*┋* *.ᴘɪɴɢ*
+*┋* *.ᴘɪɴɢ2*
+*┋* *.ꜱʏꜱᴛᴇᴍ*
+*╰┈───────────────•*
 
 > POWERED BY SILENTLOVER432`);
                         break;
                     case '9':               
-                        reply(`*◈╾──────MOVIE COMMAND LIST──────╼◈*
+                        reply(`
 
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *mv* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *minfo* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *mvsin* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *mvdl* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *dllink* 
-*➟➟➟➟➟➟➟➟_📑_*
-*➟➟➟➟➟➟➟➟_📑_*
-│ • *sd* 
-*➟➟➟➟➟➟➟➟_📑_*
-
+*[ • 🥂 RANDOM-CMD 🥂 ‎• ]*
+*╭┈───────────────•*
+*┋* *.ᴋɪɴɢ*
+*┋* *.ᴅᴏɢ*
+*┋* *.ᴀɴɪᴍᴇ*
+*┋* *.ᴀɴɪᴍᴇɢɪʀʟ*
+*┋* *.ᴀɴɪᴍᴇɢɪʀʟ1*
+*┋* *.ᴀɴɪᴍᴇɢɪʀʟ2*
+*┋* *.ᴀɴɪᴍᴇɢɪʀʟ3*
+*┋* *.ᴀɴɪᴍᴇɢɪʀʟ4*
+*┋* *.ᴀɴɪᴍᴇɢɪʀʟ5*
+*╰┈───────────────•*
 
 > POWERED BY SILENTLOVER432`);
 
 
                         break;
+                    default:
+                        reply("*Please select a valid option🔴*");
                 }
+
             }
         });
+
     } catch (e) {
         console.error(e);
-        await conn.sendMessage(from, { react: { text: '❌', key: mek.key } });
-        reply('Problem.');
+        await conn.sendMessage(from, { react: { text: '❌', key: mek.key } })
+        reply('An error occurred while processing your request.');
     }
 });
