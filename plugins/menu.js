@@ -12,23 +12,28 @@ cmd({
 },
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
-        let desc = `*👋 Hello ${pushname}*
+        let desc = `*╭┈───────────────•*
 
-*➟➟➟➟➟➟➟➟➟➟➟➟*
-│ʀᴜɴᴛɪᴍᴇ : ${runtime(process.uptime())}
-│ʀᴀᴍ ᴜꜱᴀɢᴇ : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
-*➟➟➟➟➟➟➟➟➟➟➟➟*
+*⇆ ʜɪɪ ᴍʏ ᴅᴇᴀʀ ғʀɪᴇɴᴅ ⇆*
+
+     *${pushname}*
+     
+*╰┈───────────────•*
+*╭┈───────────────•*
+*│  ◦* ʀᴜɴᴛɪᴍᴇ : ${runtime(process.uptime())}
+*│  ◦* ʀᴀᴍ ᴜꜱᴀɢᴇ : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
+*╰┈───────────────•*
 
 *╭┈───────────────•*
-*├ 1* • OWNER
-*├ 2* • TRANSLATE
-*├ 3* • AI
-*├ 4* • SEARCH
-*├ 5* • DOWNLOAD
-*├ 6* • MAIN
-*├ 7* • GROUP
-*├ 8* • DIREC LINK 
-*├ 9* • MOVIE
+*├ 1* • *[ • 👨‍💻 OWNER-CMD 👨‍💻 ‎• ]*
+*├ 2* • *[ • 📥 DOWNLOADER-CMD 📥 ‎• ]*
+*├ 3* • *[ • 👥 GROUP-CMD 👥 ‎• ]*
+*├ 4* • *[ • 📃 INFO-CMD 📃 ‎• ]*
+*├ 5* • *[ • 🥂 RANDOM-CMD 🥂 ‎• ]*
+*├ 6* • *[ • 🎡 CONVERTER-CMD 🎡 ‎• ]*
+*├ 7* • *[ • 🧠 AI-CMD 🧠 ‎• ]*
+*├ 8* • *[ • 🏜️ WALLPAPERS-CMD 🏜️ ‎• ]*
+*├ 9* • *[ • 🌐 OTHER-CMD 🌐 ‎• ]*
 *╰┈───────────────•*
 
 _*🌟 Reply with the Number you want to select*_
@@ -70,46 +75,8 @@ _*🌟 Reply with the Number you want to select*_
 await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b260c3f096a612.jpg"}, caption: owner }, { quoted: mek });                     
                         break;
                     case '2':               
-                        reply(`
-*[ • 🎡 CONVERTER-CMD 🎡 ‎• ]*
-*╭┈───────────────•*
-*┋* *.sᴛɪᴄᴋᴇʀ*
-*┋* *.ᴛʀᴛ <ᴛᴇxᴛ>*
-*┋* *.ᴛᴛs <ᴛᴇxᴛ>*
-*╰┈───────────────•*                            
-
-> POWERED BY SILENTLOVER432`);
-                        break;
-                    case '3':               
-                        reply(`
-
-*[ • 🧠 AI-CMD 🧠 ‎• ]*
-*╭┈───────────────•*
-*┋* *.ɢᴘᴛ <ᴛᴇxᴛ>*
-*┋* *.ᴀɪ <ᴛᴇxᴛ>*
-*┋* *.ʙᴏᴛ <ᴛᴇxᴛ>*
-*╰┈───────────────•*
-
-> POWERED BY SILENTLOVER432`);
-                        break;
-                    case '4':               
-                        reply(`
-
-*[ • 🔎 SEARCH-CMD 🔍 ‎• ]*
-*╭┈───────────────•*
-*┋* *.ʏᴛꜱ  <ᴛᴇxᴛ>*
-*┋* *.ʏᴛᴀ <ᴜʀʟ>*
-*┋* *.ʟᴏʟɪ <ᴛᴇxᴛ>*
-*┋* *.ᴍᴏᴠɪᴇɪɴғᴏ <ᴛᴇxᴛ>*
-*┋* *.ɪᴍɢ <ᴛᴇxᴛ>*
-*┋* *.ᴡᴇᴀᴛʜᴇʀ <ᴄɪᴛʏ>*
-*╰┈───────────────•*
-> POWERED BY SILENTLOVER432`);
-                        break;
-                    case '5':               
-                        reply(`
-
-*[ • 📥 DOWNLOADER-CMD 📥 ‎• ]*
+                        let owner1 = `
+*[ • 📥 DOWNLOADER-CMD 📥 ‎• ]*                        
 *╭┈───────────────•*
 *┋* *.ғʙ <ᴜʀʟ>*
 *┋* *.ɪɴꜱᴛᴀ <ᴜʀʟ>*
@@ -130,35 +97,12 @@ await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b26
 *┋* *.ɢɪɴɪsɪsɪʟᴀ <ᴛɪᴛᴛʟᴇ>*
 *╰┈───────────────•*
 
-> POWERED BY SILENTLOVER432`);
+> POWERED BY SILENTLOVER432`;
+                        
+await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b260c3f096a612.jpg"}, caption: owner1 }, { quoted: mek });                     
                         break;
-                    case '6':               
-                        reply(`
-
-*[ • 👨‍💻 OWNER-CMD 👨‍💻 ‎• ]*
-*╭┈───────────────•*
-*┋* *.ᴜᴘᴅᴀᴛᴇᴄᴍᴅ*
-*┋* *.sᴇᴛᴛɪɴɢs*
-*┋* *.ᴏᴡɴᴇʀ*
-*┋* *.ʀᴇᴘᴏ*
-*┋* *.ꜱʏꜱᴛᴇᴍ*
-*┋* *.ꜱᴛᴀᴛᴜꜱ*
-*┋* *.ʙʟᴏᴄᴋ*
-*┋* *.ᴜɴʙʟᴏᴄᴋ*
-*┋* *.sʜᴜᴛᴅᴏᴡɴ*
-*┋* *.ᴄʟᴇᴀʀᴄʜᴀᴛs*
-*┋* *.sᴇᴛᴘᴘ*
-*┋* *.ʙʀᴏᴀᴅᴄᴀsᴛ*
-*┋* *.ᴊɪᴅ*
-*┋* *.ɢᴊɪᴅ*
-*┋* *.ʀᴇꜱᴛᴀʀᴛ*
-*╰┈───────────────•*
-
-> POWERED BY SILENTLOVER432`);
-                        break;
-                    case '7':               
-                        reply(`
-
+                    case '3':               
+                        let owner2 = `
 *[ • 👥 GROUP-CMD 👥 ‎• ]*
 *╭┈───────────────•*
 *┋* *.ʀᴇᴍᴏᴠᴇ <ʀᴇᴘʟʏ ғᴏʀ ᴅᴇʟᴇᴛᴇ sᴍs>*
@@ -191,10 +135,11 @@ await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b26
 *┋* *.sᴇɴᴅᴅᴍ*
 *╰┈───────────────•*
 
-> POWERED BY SILENTLOVER432`);
-                       break;
-                    case '8':               
-                        reply(`
+> POWERED BY SILENTLOVER432`;
+await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b260c3f096a612.jpg"}, caption: owner2 }, { quoted: mek });                     
+                        break;
+                    case '4':               
+                        let owner3 = `
 
 *[ • 📃 INFO-CMD 📃 ‎• ]*
 *╭┈───────────────•*
@@ -213,10 +158,11 @@ await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b26
 *┋* *.ꜱʏꜱᴛᴇᴍ*
 *╰┈───────────────•*
 
-> POWERED BY SILENTLOVER432`);
+> POWERED BY SILENTLOVER432`;
+await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b260c3f096a612.jpg"}, caption: owner3 }, { quoted: mek });                     
                         break;
-                    case '9':               
-                        reply(`
+                    case '5':               
+                        let owner4 = `
 
 *[ • 🥂 RANDOM-CMD 🥂 ‎• ]*
 *╭┈───────────────•*
@@ -231,9 +177,62 @@ await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b26
 *┋* *.ᴀɴɪᴍᴇɢɪʀʟ5*
 *╰┈───────────────•*
 
-> POWERED BY SILENTLOVER432`);
+> POWERED BY SILENTLOVER432`;
 
+await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b260c3f096a612.jpg"}, caption: owner4 }, { quoted: mek });                     
+                        break;
+                    case '6':               
+                        let owner5 = `
 
+*[ • 🎡 CONVERTER-CMD 🎡 ‎• ]*
+*╭┈───────────────•*
+*┋* *.sᴛɪᴄᴋᴇʀ*
+*┋* *.ᴛʀᴛ <ᴛᴇxᴛ>*
+*┋* *.ᴛᴛs <ᴛᴇxᴛ>*
+*╰┈───────────────•*
+
+> POWERED BY SILENTLOVER432`;
+await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b260c3f096a612.jpg"}, caption: owner5 }, { quoted: mek });                     
+                        break;
+                    case '7':               
+                        let owner6 = `
+*[ • 🧠 AI-CMD 🧠 ‎• ]*
+*╭┈───────────────•*
+*┋* *.ɢᴘᴛ <ᴛᴇxᴛ>*
+*┋* *.ᴀɪ <ᴛᴇxᴛ>*
+*┋* *.ʙᴏᴛ <ᴛᴇxᴛ>*
+*╰┈───────────────•*
+
+> POWERED BY SILENTLOVER432`;
+await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b260c3f096a612.jpg"}, caption: owner6 }, { quoted: mek });                     
+                        break;
+                    case '8':               
+                        let owner7 = `
+*[ • 🏜️ WALLPAPERS-CMD 🏜️ ‎• ]*
+*╭┈───────────────•*
+*┋* *.ɪᴍɢ*
+*╰┈───────────────•*
+
+> POWERED BY SILENTLOVER432`;
+await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b260c3f096a612.jpg"}, caption: owner7 }, { quoted: mek });                     
+                        break;
+                    case '9':               
+                        let owner8 = `
+*[ • 🌐 OTHER-CMD 🌐 ‎• ]*
+*╭┈───────────────•*
+*┋* *.ᴛʀᴛ*
+*┋* *.ᴊᴏᴋᴇ*
+*┋* *.ꜰᴀᴄᴛ*
+*┋* *.ɢɪᴛʜᴜʙꜱᴛᴀʟᴋ*
+*┋* *.ɢᴘᴀꜱꜱ*
+*┋* *.ʜᴀᴄᴋ*
+*┋* *.ǫᴜᴏᴛᴇ*
+*┋* *.ꜱʀᴇᴘᴏ*
+*┋* *.ᴅᴇꜰɪɴᴇ*
+*╰┈───────────────•*
+
+> POWERED BY SILENTLOVER432`;
+await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b260c3f096a612.jpg"}, caption: owner8 }, { quoted: mek });                     
                         break;
                     default:
                         reply("*Please select a valid option🔴*");
