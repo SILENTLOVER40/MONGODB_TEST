@@ -66,7 +66,7 @@ _*🌟 Reply with the Number you want to select*_
 *┋* *.ʀᴇꜱᴛᴀʀᴛ*
 *╰┈───────────────•*
 
-> POWERED BY SILENTLOVER432`
+> POWERED BY SILENTLOVER432`;
 await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b260c3f096a612.jpg"}, caption: owner }, { quoted: mek });                     
                         break;
                     case '2':               
