@@ -6,8 +6,9 @@ const axios = require('axios')
 
 cmd({
     pattern: "menu",
+    react: "🛸",
+    alias: ["panel","commands"],
     desc: "menu the bot",
-    react: "📜",
     category: "main"
 },
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
@@ -24,7 +25,7 @@ try{
 *│  ◦* ʀᴀᴍ ᴜꜱᴀɢᴇ : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
 *│  ◦* ᴍᴏᴅᴇ : *[${config.MODE}]*
 *│  ◦* ᴘʀᴇғɪx : *[${config.PREFIX}]*
-*│  ◦*  *ᴄʀᴇᴀᴛᴏʀ* : ${config.BOT_NAME}
+*│  ◦* ᴄʀᴇᴀᴛᴏʀ : ${config.BOT_NAME}
 *╰┈───────────────•*
 
 *╭┈───────────────•*
