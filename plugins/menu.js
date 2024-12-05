@@ -33,7 +33,7 @@ _*🌟 Reply with the Number you want to select*_
 
 > POWERED BY SILENTLOVER432`;
 
-        const vv = await conn.sendMessage(from,{image:{url:config.ALIVE_IMG},caption:desc},{quoted:mek});
+        const vv = await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b260c3f096a612.jpg"}, caption: desc }, { quoted: mek });
 
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
@@ -53,7 +53,7 @@ _*🌟 Reply with the Number you want to select*_
 │ • *f* 
 *➟➟➟➟➟➟➟➟_📑_*
 
-> POWERED BY SILENTLOVER432`;
+> 𝙿𝙾𝚆𝙴𝚁𝙳  𝙱𝚈  𓄂𝐎ᴡͥɳͣᴇͫᴙ  𝐂ʏ͢ʙᴇʀ  𝚇 Aʏ͢ᴇꜱʜ`);
                         break;
                     case '2':               
                         reply(`*◈╾──────TRANSLATE COMMAND LIST──────╼◈*
@@ -62,7 +62,7 @@ _*🌟 Reply with the Number you want to select*_
 │ • *trt* 
 *➟➟➟➟➟➟➟➟_📑_*
 
-> POWERED BY SILENTLOVER432`;
+> 𝙿𝙾𝚆𝙴𝚁𝙳  𝙱𝚈  𓄂𝐎ᴡͥɳͣᴇͫᴙ  𝐂ʏ͢ʙᴇʀ  𝚇 Aʏ͢ᴇꜱʜ`);
                         break;
                     case '3':               
                         reply(`*◈╾──────AI COMMAND LIST──────╼◈*
@@ -71,7 +71,7 @@ _*🌟 Reply with the Number you want to select*_
 │ • *ai* 
 *➟➟➟➟➟➟➟➟_📑_*
 
-> POWERED BY SILENTLOVER432`;
+> 𝙿𝙾𝚆𝙴𝚁𝙳  𝙱𝚈  𓄂𝐎ᴡͥɳͣᴇͫᴙ  𝐂ʏ͢ʙᴇʀ  𝚇 Aʏ͢ᴇꜱʜ`);
                         break;
                     case '4':               
                         reply(`*◈╾──────SEARCH COMMAND LIST──────╼◈*
@@ -83,7 +83,7 @@ _*🌟 Reply with the Number you want to select*_
 │ • *github* 
 *➟➟➟➟➟➟➟➟_📑_*
 
-> POWERED BY SILENTLOVER432`;
+> 𝙿𝙾𝚆𝙴𝚁𝙳  𝙱𝚈  𓄂𝐎ᴡͥɳͣᴇͫᴙ  𝐂ʏ͢ʙᴇʀ  𝚇 Aʏ͢ᴇꜱʜ`);
                         break;
                     case '5':               
                         reply(`*◈╾──────DOWNLOAD COMMAND LIST──────╼◈*
@@ -131,7 +131,7 @@ _*🌟 Reply with the Number you want to select*_
 │ • *x* 
 *➟➟➟➟➟➟➟➟_📑_*
 
-> POWERED BY SILENTLOVER432`;
+> 𝙿𝙾𝚆𝙴𝚁𝙳  𝙱𝚈  𓄂𝐎ᴡͥɳͣᴇͫᴙ  𝐂ʏ͢ʙᴇʀ  𝚇 Aʏ͢ᴇꜱʜ`);
                         break;
                     case '6':               
                         reply(`*◈╾──────MAIN COMMAND LIST──────╼◈*
@@ -154,7 +154,7 @@ _*🌟 Reply with the Number you want to select*_
 │ • *vv* 
 *➟➟➟➟➟➟➟➟_📑_*
 
-> POWERED BY SILENTLOVER432`;
+> 𝙿𝙾𝚆𝙴𝚁𝙳  𝙱𝚈  𓄂𝐎ᴡͥɳͣᴇͫᴙ  𝐂ʏ͢ʙᴇʀ  𝚇 Aʏ͢ᴇꜱʜ`);
                         break;
                     case '7':               
                         reply(`*◈╾──────GROUP COMMAND LIST──────╼◈*
@@ -190,7 +190,7 @@ _*🌟 Reply with the Number you want to select*_
 │ • *getdec* 
 *➟➟➟➟➟➟➟➟_📑_*
 
-> POWERED BY SILENTLOVER432`;
+> 𝙿𝙾𝚆𝙴𝚁𝙳  𝙱𝚈  𓄂𝐎ᴡͥɳͣᴇͫᴙ  𝐂ʏ͢ʙᴇʀ  𝚇 Aʏ͢ᴇꜱʜ`);
                        break;
                     case '8':               
                         reply(`*◈╾──────DIRECT LINK DOWNLOAD COMMAND LIST──────╼◈*
@@ -209,7 +209,7 @@ _*🌟 Reply with the Number you want to select*_
 │ • *uptv* 
 *➟➟➟➟➟➟➟➟_📑_*
 
-> POWERED BY SILENTLOVER432`;
+> 𝙿𝙾𝚆𝙴𝚁𝙳  𝙱𝚈  𓄂𝐎ᴡͥɳͣᴇͫᴙ  𝐂ʏ͢ʙᴇʀ  𝚇 Aʏ͢ᴇꜱʜ`);
 
                         break;
                     case '9':               
@@ -235,7 +235,7 @@ _*🌟 Reply with the Number you want to select*_
 *➟➟➟➟➟➟➟➟_📑_*
 
 
-> POWERED BY SILENTLOVER432`;
+> 𝙿𝙾𝚆𝙴𝚁𝙳  𝙱𝚈  𓄂𝐎ᴡͥɳͣᴇͫᴙ  𝐂ʏ͢ʙᴇʀ  𝚇 Aʏ͢ᴇꜱʜ`);
 
 
                         break;
