@@ -22,25 +22,28 @@ try{
 *╭┈───────────────•*
 *│  ◦* ʀᴜɴᴛɪᴍᴇ : ${runtime(process.uptime())}
 *│  ◦* ʀᴀᴍ ᴜꜱᴀɢᴇ : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
+*│  ◦* ᴍᴏᴅᴇ : *[${config.MODE}]*
+*│  ◦* ᴘʀᴇғɪx : *[${config.PREFIX}]*
+*│  ◦*  *ᴄʀᴇᴀᴛᴏʀ* : ${config.BOT_NAME}
 *╰┈───────────────•*
 
 *╭┈───────────────•*
-*├ 1* • *[ • 👨‍💻 OWNER-CMD 👨‍💻 ‎• ]*
-*├ 2* • *[ • 📥 DOWNLOADER-CMD 📥 ‎• ]*
-*├ 3* • *[ • 👥 GROUP-CMD 👥 ‎• ]*
-*├ 4* • *[ • 📃 INFO-CMD 📃 ‎• ]*
-*├ 5* • *[ • 🥂 RANDOM-CMD 🥂 ‎• ]*
-*├ 6* • *[ • 🎡 CONVERTER-CMD 🎡 ‎• ]*
-*├ 7* • *[ • 🧠 AI-CMD 🧠 ‎• ]*
-*├ 8* • *[ • 🏜️ WALLPAPERS-CMD 🏜️ ‎• ]*
-*├ 9* • *[ • 🌐 OTHER-CMD 🌐 ‎• ]*
+*├ 1* • *[ • OWNER-CMD • ]*
+*├ 2* • *[ • DOWNLOADER-CMD ‎• ]*
+*├ 3* • *[ • GROUP-CMD ‎• ]*
+*├ 4* • *[ • INFO-CMD ‎• ]*
+*├ 5* • *[ • RANDOM-CMD • ]*
+*├ 6* • *[ • CONVERTER-CMD • ]*
+*├ 7* • *[ • AI-CMD ‎• ]*
+*├ 8* • *[ • WALLPAPERS-CMD ‎• ]*
+*├ 9* • *[ • OTHER-CMD • ]*
 *╰┈───────────────•*
 
 _*🌟 Reply with the Number you want to select*_
 
 > POWERED BY SILENTLOVER432`;
 
-    const vv = await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b260c3f096a612.jpg"}, caption: desc }, { quoted: mek });
+    const vv = await conn.sendMessage(from, { image: { url:config.ALIVE_IMG}, caption: desc }, { quoted: mek });
 
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
@@ -72,7 +75,7 @@ _*🌟 Reply with the Number you want to select*_
 *╰┈───────────────•*
 
 > POWERED BY SILENTLOVER432`;
-await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b260c3f096a612.jpg"}, caption: owner }, { quoted: mek });                     
+await conn.sendMessage(from, { image: { url:config.ALIVE_IMG}, caption: owner }, { quoted: mek });                     
                         break;
                     case '2':               
                         let owner1 = `
@@ -99,7 +102,7 @@ await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b26
 
 > POWERED BY SILENTLOVER432`;
                         
-await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b260c3f096a612.jpg"}, caption: owner1 }, { quoted: mek });                     
+await conn.sendMessage(from, { image: { url:config.ALIVE_IMG}, caption: owner1 }, { quoted: mek });                     
                         break;
                     case '3':               
                         let owner2 = `
@@ -136,7 +139,7 @@ await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b26
 *╰┈───────────────•*
 
 > POWERED BY SILENTLOVER432`;
-await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b260c3f096a612.jpg"}, caption: owner2 }, { quoted: mek });                     
+await conn.sendMessage(from, { image: { url:config.ALIVE_IMG}, caption: owner2 }, { quoted: mek });                     
                         break;
                     case '4':               
                         let owner3 = `
@@ -159,7 +162,7 @@ await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b26
 *╰┈───────────────•*
 
 > POWERED BY SILENTLOVER432`;
-await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b260c3f096a612.jpg"}, caption: owner3 }, { quoted: mek });                     
+await conn.sendMessage(from, { image: { url:config.ALIVE_IMG}, caption: owner3 }, { quoted: mek });                     
                         break;
                     case '5':               
                         let owner4 = `
@@ -179,7 +182,7 @@ await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b26
 
 > POWERED BY SILENTLOVER432`;
 
-await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b260c3f096a612.jpg"}, caption: owner4 }, { quoted: mek });                     
+await conn.sendMessage(from, { image: { url:config.ALIVE_IMG}, caption: owner4 }, { quoted: mek });                     
                         break;
                     case '6':               
                         let owner5 = `
@@ -192,7 +195,7 @@ await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b26
 *╰┈───────────────•*
 
 > POWERED BY SILENTLOVER432`;
-await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b260c3f096a612.jpg"}, caption: owner5 }, { quoted: mek });                     
+await conn.sendMessage(from, { image: { url:config.ALIVE_IMG}, caption: owner5 }, { quoted: mek });                     
                         break;
                     case '7':               
                         let owner6 = `
@@ -204,7 +207,7 @@ await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b26
 *╰┈───────────────•*
 
 > POWERED BY SILENTLOVER432`;
-await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b260c3f096a612.jpg"}, caption: owner6 }, { quoted: mek });                     
+await conn.sendMessage(from, { image: { url:config.ALIVE_IMG}, caption: owner6 }, { quoted: mek });                     
                         break;
                     case '8':               
                         let owner7 = `
@@ -214,7 +217,7 @@ await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b26
 *╰┈───────────────•*
 
 > POWERED BY SILENTLOVER432`;
-await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b260c3f096a612.jpg"}, caption: owner7 }, { quoted: mek });                     
+await conn.sendMessage(from, { image: { url:config.ALIVE_IMG}, caption: owner7 }, { quoted: mek });                     
                         break;
                     case '9':               
                         let owner8 = `
@@ -232,7 +235,7 @@ await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b26
 *╰┈───────────────•*
 
 > POWERED BY SILENTLOVER432`;
-await conn.sendMessage(from, { image: { url: "https://telegra.ph/file/2a06381b260c3f096a612.jpg"}, caption: owner8 }, { quoted: mek });                     
+await conn.sendMessage(from, { image: { url:config.ALIVE_IMG}, caption: owner8 }, { quoted: mek });                     
                         break;
                     default:
                         reply("*Please select a valid option🔴*");
