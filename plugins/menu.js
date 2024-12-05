@@ -33,7 +33,7 @@ _*🌟 Reply with the Number you want to select*_
 
 > POWERED BY SILENTLOVER432`;
 
-        const vv = await conn.sendMessage(from, {image:{url:config.ALIVE_IMG, caption: desc }, { quoted: mek });
+        const vv = await conn.sendMessage(from,{image:{url:config.ALIVE_IMG},caption:desc},{quoted:mek});
 
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
