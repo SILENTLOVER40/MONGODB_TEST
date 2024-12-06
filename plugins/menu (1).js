@@ -53,7 +53,7 @@ const vv = await conn.sendMessage(from, {
     forwardingScore: 999, // برای فوروارد شدن
     isForwarded: true, // پیام به صورت فوروارد شده نشان داده می‌شود
     forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363232588171807@newsletter', 
+      newsletterJid: '0029VaHO5B0G3R3cWkZN970s@s.whatsapp.net', 
       newsletterName: "SILENTLOVER432", 
       serverMessageId: 999
     },
@@ -62,7 +62,9 @@ const vv = await conn.sendMessage(from, {
       body: `${pushname}`, 
       mediaType: 1, 
       sourceUrl: "https://whatsapp.com/channel/0029VaHO5B0G3R3cWkZN970s", 
-      showAdAttribution: false
+      thumbnailUrl: "https://qu.ax/bJuNG.jpg" ,
+      renderLargerThumbnail: true,
+      showAdAttribution: true
     }
   }
 }, { quoted: mek });
