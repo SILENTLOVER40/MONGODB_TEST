@@ -53,7 +53,7 @@ const vv = await conn.sendMessage(from, {
     forwardingScore: 999, // برای فوروارد شدن
     isForwarded: true, // پیام به صورت فوروارد شده نشان داده می‌شود
     forwardedNewsletterMessageInfo: {
-      newsletterJid: '0029VaHO5B0G3R3cWkZN970s@s.whatsapp.net', 
+      newsletterJid: '00295033970@newsletter', 
       newsletterName: "SILENTLOVER432", 
       serverMessageId: 999
     },
