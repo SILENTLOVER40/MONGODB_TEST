@@ -44,7 +44,7 @@ _*🌟 Reply with the Number you want to select*_
 
 > ${config.CAPTION}`;
 
-const vv = await conn.sendMessage(from, { text: desc ,
+const vv = await conn.sendMessage(from,{image:{url:config.ALIVE_IMG},text:desc, 
   contextInfo: {
     mentionedJid: [''],
     groupMentions: [],
@@ -58,7 +58,6 @@ const vv = await conn.sendMessage(from, { text: desc ,
     externalAdReply: { 
       title: 'SILENT-SOBX-MD',
       body: `${pushname}`,
-      imageUrl: `${config.ALIVE_IMG}`,
       mediaType: 1,
       sourceUrl: "https://whatsapp.com/channel/0029VaHO5B0G3R3cWkZN970s",
       showAdAttribution: true
