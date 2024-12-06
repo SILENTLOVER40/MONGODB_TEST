@@ -60,6 +60,7 @@ title: 'SILENT-SOBX-MD',
 body: `${pushname}`,
 mediaType: 1,
 sourceUrl: "https://whatsapp.com/channel/0029VaHO5B0G3R3cWkZN970s" ,
+showAdAttribution: true
 }
 }}, { quoted: mek})
         conn.ev.on('messages.upsert', async (msgUpdate) => {
