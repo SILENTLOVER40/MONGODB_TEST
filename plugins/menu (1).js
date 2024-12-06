@@ -13,7 +13,6 @@ cmd({
 },
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
-let pp = `${config.ALIVE_IMG}`;
 let desc = `*╭┈───────────────•*
 
 *⇆ ʜɪɪ ᴍʏ ᴅᴇᴀʀ ғʀɪᴇɴᴅ ⇆*
@@ -47,7 +46,7 @@ _*🌟 Reply with the Number you want to select*_
 
 const vv = await conn.sendMessage(from, { 
   text: desc,
-  image: { url: pp },
+  image: { url: `${config.ALIVE_IMG}`},
   caption: desc,
   contextInfo: {
     mentionedJid: [''],
