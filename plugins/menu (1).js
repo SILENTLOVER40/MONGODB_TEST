@@ -13,7 +13,7 @@ cmd({
 },
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
-        let desc = `*╭┈───────────────•*
+let desc = `*╭┈───────────────•*
 
 *⇆ ʜɪɪ ᴍʏ ᴅᴇᴀʀ ғʀɪᴇɴᴅ ⇆*
 
@@ -29,40 +29,43 @@ try{
 *╰┈───────────────•*
 
 *╭┈───────────────•*
-*├ 1* • ➠ *❖ OWNER ❖*
-*├ 2* • ➠ *❖ DOWNLOADER ‎❖*
-*├ 3* • ➠ *❖ GROUPS ‎❖*
-*├ 4* • ➠ *❖ INFO ‎❖*
-*├ 5* • ➠ *❖ RANDOM ❖*
-*├ 6* • ➠ *❖ CONVERTER ❖*
-*├ 7* • ➠ *❖ AI ❖‎*
-*├ 8* • ➠ *❖ WALLPAPERS ❖‎*
-*├ 9* • ➠ *❖ OTHER ❖*
+*├ 1* • ➠ *• OWNER •*
+*├ 2* • ➠ *• DOWNLOAD •‎*
+*├ 3* • ➠ *• GROUPS •‎*
+*├ 4* • ➠ *• INFO •‎*
+*├ 5* • ➠ *• RANDOM •*
+*├ 6* • ➠ *• CONVERT •*
+*├ 7* • ➠ *• AI •‎*
+*├ 8* • ➠ *• WALLPAPERS •‎*
+*├ 9* • ➠ *• OTHER •*
 *╰┈───────────────•*
 
-*✧ ʀᴇᴘʟʏ ᴡɪᴛʜ ᴛʜᴇ ɴᴜᴍʙᴇʀ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ sᴇʟᴇᴄᴛ ✧*
+*✧ ʀᴇᴘʟʏ ᴡɪᴛʜ ᴛʜᴇ ɴᴜᴍʙᴇʀ ʏᴏᴜ ᴡᴀɴᴛ ᴏᴜᴛ ᴛᴏ sᴇʟᴇᴄᴛ ✧*
 
 > ${config.CAPTION}`;
 
-    const vv = await conn.sendMessage(from, { image: { url:config.ALIVE_IMG}, caption: desc, 
+const vv = await conn.sendMessage(from, { 
+  image: { url: config.ALIVE_IMG }, 
+  caption: desc, 
   contextInfo: {
-    mentionedJid: [ '' ],
+    mentionedJid: [''], 
     groupMentions: [],
-    forwardingScore: 999,
-    isForwarded: false,
+    forwardingScore: 999, // برای فوروارد شدن
+    isForwarded: true, // پیام به صورت فوروارد شده نشان داده می‌شود
     forwardedNewsletterMessageInfo: {
-      newsletterJid: '120363232588171807@newsletter',
-      newsletterName: "SILENTLOVER432",
+      newsletterJid: '120363232588171807@newsletter', 
+      newsletterName: "SILENTLOVER432", 
       serverMessageId: 999
     },
-externalAdReply: { 
-title: 'SILENT-SOBX-MD',
-body: `${pushname}`,
-mediaType: 1,
-sourceUrl: "https://whatsapp.com/channel/0029VaHO5B0G3R3cWkZN970s", 
-showAdAttribution: true
-}
-}}, { quoted: mek})
+    externalAdReply: { 
+      title: 'SILENT-SOBX-MD', 
+      body: `${pushname}`, 
+      mediaType: 1, 
+      sourceUrl: "https://whatsapp.com/channel/0029VaHO5B0G3R3cWkZN970s", 
+      showAdAttribution: false
+    }
+  }
+}, { quoted: mek });
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
             if (!msg.message || !msg.message.extendedTextMessage) return;
