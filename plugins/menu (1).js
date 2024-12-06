@@ -44,7 +44,7 @@ _*🌟 Reply with the Number you want to select*_
 
 > ${config.CAPTION}`;
 
-let pp = `${config.ALIVE_IMG}`,
+let pp = ${config.ALIVE_IMG};
     const vv = await conn.sendMessage(from, { image: { url: pp}, { text: desc ,
   contextInfo: {
     mentionedJid: [ '' ],
