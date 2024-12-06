@@ -44,7 +44,27 @@ _*🌟 Reply with the Number you want to select*_
 
 > ${config.CAPTION}`;
 
-    const vv = await conn.sendMessage(from, { image: { url:config.ALIVE_IMG}, caption: desc }, { quoted: mek });
+    const vv = await conn.sendMessage(from, { text: desc ,
+  contextInfo: {
+    mentionedJid: [ '' ],
+    groupMentions: [],
+    forwardingScore: 999,
+    isForwarded: false,
+    forwardedNewsletterMessageInfo: {
+      newsletterJid: '120363232588171807@newsletter',
+      newsletterName: "SILENTLOVER432",
+      serverMessageId: 999
+    },
+externalAdReply: { 
+title: 'SILENT-SOBX-MD',
+body: `${pushname}`,
+mediaType: 1,
+sourceUrl: "https://whatsapp.com/channel/0029VaHO5B0G3R3cWkZN970s" ,
+thumbnailUrl: `${config.ALIVE_IMG}`,
+renderLargerThumbnail: true,
+showAdAttribution: true
+}
+}},
 
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
