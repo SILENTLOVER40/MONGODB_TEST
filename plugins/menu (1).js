@@ -13,6 +13,8 @@ cmd({
 },
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
+let pp = config.ALIVE_IMG;
+
 let desc = `*╭┈───────────────•*
 
 *⇆ ʜɪɪ ᴍʏ ᴅᴇᴀʀ ғʀɪᴇɴᴅ ⇆*
@@ -44,10 +46,12 @@ _*🌟 Reply with the Number you want to select*_
 
 > ${config.CAPTION}`;
 
-let pp = ${config.ALIVE_IMG};
-    const vv = await conn.sendMessage(from, { image: { url: pp}, { text: desc ,
+const vv = await conn.sendMessage(from, { 
+  text: desc,
+  image: { url: pp },
+  caption: desc,
   contextInfo: {
-    mentionedJid: [ '' ],
+    mentionedJid: [''],
     groupMentions: [],
     forwardingScore: 999,
     isForwarded: false,
@@ -56,14 +60,15 @@ let pp = ${config.ALIVE_IMG};
       newsletterName: "SILENTLOVER432",
       serverMessageId: 999
     },
-externalAdReply: { 
-title: 'SILENT-SOBX-MD',
-body: `${pushname}`,
-mediaType: 1,
-sourceUrl: "https://whatsapp.com/channel/0029VaHO5B0G3R3cWkZN970s",
-showAdAttribution: true
-}
-}}, { quoted: mek})
+    externalAdReply: { 
+      title: 'SILENT-SOBX-MD',
+      body: `${pushname}`,
+      mediaType: 1,
+      sourceUrl: "https://whatsapp.com/channel/0029VaHO5B0G3R3cWkZN970s",
+      showAdAttribution: true
+    }
+  }
+}, { quoted: mek });
         conn.ev.on('messages.upsert', async (msgUpdate) => {
             const msg = msgUpdate.messages[0];
             if (!msg.message || !msg.message.extendedTextMessage) return;
