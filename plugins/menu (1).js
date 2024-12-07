@@ -15,7 +15,7 @@ async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender
 try{
 let desc = `*╭┈───────────────•*
 
-*⇆ ʜɪɪ ᴍʏ ᴅᴇᴀʀ ғʀɪᴇɴᴅ ⇆*
+*⇆ ᴡᴇʟᴄᴏᴍᴇ ᴅᴇᴀʀ ғʀɪᴇɴᴅ ⇆*
 
      *${pushname}*
      
@@ -25,19 +25,18 @@ let desc = `*╭┈───────────────•*
 *│  ◦* ʀᴀᴍ ᴜꜱᴀɢᴇ : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
 *│  ◦* ᴍᴏᴅᴇ : *[${config.MODE}]*
 *│  ◦* ᴘʀᴇғɪx : *[${config.PREFIX}]*
-*│  ◦* ᴄʀᴇᴀᴛᴏʀ : ${config.BOT_NAME}
 *╰┈───────────────•*
-
+*◆─〈 ✦${config.BOT_NAME}✦ 〉─◆*
 *╭┈───────────────•*
-*├ 1* • ➠ *• OWNER •*
-*├ 2* • ➠ *• DOWNLOAD •‎*
-*├ 3* • ➠ *• GROUPS •‎*
-*├ 4* • ➠ *• INFO •‎*
-*├ 5* • ➠ *• RANDOM •*
-*├ 6* • ➠ *• CONVERT •*
-*├ 7* • ➠ *• AI •‎*
-*├ 8* • ➠ *• WALLPAPERS •‎*
-*├ 9* • ➠ *• OTHER •*
+*├ 1* • ➠ *【 OWNER 】*
+*├ 2* • ➠ *【 DOWNLOAD 】‎*
+*├ 3* • ➠ *【 GROUPS 】*
+*├ 4* • ➠ *【 INFO 】‎*
+*├ 5* • ➠ *【 RANDOM 】*
+*├ 6* • ➠ *【 CONVERT 】*
+*├ 7* • ➠ *【 AI 】*
+*├ 8* • ➠ *【 WALLPAPERS 】*
+*├ 9* • ➠ *【 OTHER 】*
 *╰┈───────────────•*
 
 *✧ ʀᴇᴘʟʏ ᴡɪᴛʜ ᴛʜᴇ ɴᴜᴍʙᴇʀ ʏᴏᴜ ᴡᴀɴᴛ ᴏᴜᴛ ᴛᴏ sᴇʟᴇᴄᴛ ✧*
@@ -62,7 +61,7 @@ const vv = await conn.sendMessage(from, {
       body: `${pushname}`, 
       mediaType: 1, 
       sourceUrl: "https://whatsapp.com/channel/0029VaHO5B0G3R3cWkZN970s", 
-      thumbnailUrl: "https://qu.ax/bJuNG.jpg" ,
+      thumbnailUrl: "https://telegra.ph/file/2a06381b260c3f096a612.jpg" ,
       renderLargerThumbnail: true,
       showAdAttribution: true
     }
