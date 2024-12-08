@@ -103,7 +103,7 @@ cmd({ pattern: "gjid", desc: "Get the list of JIDs for all groups the bot is par
   if (!isOwner) return reply(" You are not the owner!");
   try {
     const groups = await conn.groupFetchAllParticipating();
-    const groupJids = groups.map(group => (link unavailable)).join('\n');
+    const groupJids = groups.map(group => group.jid).join('\n');
     reply(` *Group JIDs:*\n\n${groupJids}`);
   } catch (error) {
     reply(` Error: ${error.message}`);
