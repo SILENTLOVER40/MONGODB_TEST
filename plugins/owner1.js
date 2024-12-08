@@ -3,16 +3,14 @@ const { exec } = require('child_process');
 const config = require('../config');
 const {sleep} = require('../lib/functions')
 // 1. Shutdown Bot
-cmd({
-    pattern: "shutdown",
-    desc: "Shutdown the bot.",
-    category: "owner",
-    react: "🛑",
-    filename: __filename
-},
-async (conn, mek, m, { from, isOwner, reply }) => {
-    if (!isOwner) return reply("❌ You are not the owner!");
-    reply("🛑 Shutting down...").then(() => process.exit());
+cmd({ pattern: "shutdown", desc: "Shutdown the bot.", category: "owner", react: "👀", filename: __filename }, async (conn, mek, m, { from, isOwner, reply }) => {
+  if (!isOwner) return reply(" You are not the owner!");
+  try {
+    await conn.logout();
+    reply(" Shutting down...").then(() => process.exit());
+  } catch (error) {
+    reply(` Error shutting down: ${error.message}`);
+  }
 });
 // 2. Broadcast Message to All Groups
 cmd({
@@ -33,23 +31,16 @@ async (conn, mek, m, { from, isOwner, args, reply }) => {
     reply("📢 Message broadcasted to all groups.");
 });
 // 3. Set Profile Picture
-cmd({
-    pattern: "setpp",
-    desc: "Set bot profile picture.",
-    category: "owner",
-    react: "🖼️",
-    filename: __filename
-},
-async (conn, mek, m, { from, isOwner, quoted, reply }) => {
-    if (!isOwner) return reply("❌ You are not the owner!");
-    if (!quoted || !quoted.message.imageMessage) return reply("❌ Please reply to an image.");
-    try {
-        const media = await conn.downloadMediaMessage(quoted);
-        await conn.updateProfilePicture(conn.user.jid, { url: media });
-        reply("🖼️ Profile picture updated successfully!");
-    } catch (error) {
-        reply(`❌ Error updating profile picture: ${error.message}`);
-    }
+cmd({ pattern: "setpp", desc: "Set bot profile picture.", category: "owner", react: "😎", filename: __filename }, async (conn, mek, m, { from, isOwner, quoted, reply }) => {
+  if (!isOwner) return reply(" You are not the owner!");
+  if (!quoted || !quoted.message.imageMessage) return reply(" Please reply to an image.");
+  try {
+    const media = await conn.downloadMediaMessage(quoted);
+    await conn.updateProfilePicture(conn.user.jid, media);
+    reply(" Profile picture updated successfully!");
+  } catch (error) {
+    reply(` Error updating profile picture: ${error.message}`);
+  }
 });
 // 4. Block User
 cmd({
@@ -90,12 +81,12 @@ async (conn, mek, m, { from, isOwner, quoted, reply }) => {
     }
 });
 // 6. Clear All Chats
-cmd({ pattern: "clearchats", desc: "Clear all chats from the bot.", category: "owner", react: "😼", filename: __filename }, async (conn, mek, m, { from, isOwner, reply }) => {
+cmd({ pattern: "clearchats", desc: "Clear all chats from the bot.", category: "owner", react: "😜", filename: __filename }, async (conn, mek, m, { from, isOwner, reply }) => {
   if (!isOwner) return reply(" You are not the owner!");
   try {
     const chats = await conn.getAllChats();
     for (const chat of chats) {
-      await conn.modifyChat(chat.jid, 'delete');
+      await conn.deleteChat(chat.jid);
     }
     reply(" All chats cleared successfully!");
   } catch (error) {
@@ -108,9 +99,13 @@ cmd({ pattern: "jid", desc: "Get the user's JID.", category: "owner", react: "�
   reply(` *User JID:* ${from}`);
 });
 // 8. Group JIDs List
-cmd({ pattern: "gjid", desc: "Get the list of JIDs for all groups the bot is part of.", category: "owner", react: "🔗", filename: __filename }, async (conn, mek, m, { from, isOwner, reply }) => {
+cmd({ pattern: "gjid", desc: "Get the list of JIDs for all groups the bot is part of.", category: "owner", react: "😼", filename: __filename }, async (conn, mek, m, { from, isOwner, reply }) => {
   if (!isOwner) return reply(" You are not the owner!");
-  const groups = await conn.groupFetchAllParticipating();
-  const groupJids = groups.map(group => group.jid).join('\n');
-  reply(` *Group JIDs:*\n\n${groupJids}`);
+  try {
+    const groups = await conn.groupFetchAllParticipating();
+    const groupJids = groups.map(group => (link unavailable)).join('\n');
+    reply(` *Group JIDs:*\n\n${groupJids}`);
+  } catch (error) {
+    reply(` Error: ${error.message}`);
+  }
 });
