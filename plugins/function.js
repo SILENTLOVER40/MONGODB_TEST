@@ -28,6 +28,7 @@ async (conn,mek, m, { from, body, isGroup, isAdmins, isBotAdmins, reply, sender 
 
 const linkPatterns = [
     /https?:\/\/(?:chat\.whatsapp\.com|wa\.me)\/\S+/gi,   // WhatsApp group or chat links
+    /https?:\/\/(?:whatsapp\.com\.channel|wa\.me)\/\S+/gi, //channel link
     /https?:\/\/(?:t\.me|telegram\.me)\/\S+/gi,           // Telegram links
     /https?:\/\/(?:www\.)?youtube\.com\/\S+/gi,           // YouTube links
     /https?:\/\/youtu\.be\/\S+/gi,                        // YouTube short links
@@ -72,36 +73,3 @@ cmd({
     }
 })
 
-cmd({ on: "chatUpdate" }, async (conn, update) => {
-  try {
-    if (update.type === "delete") {
-      const deletedMessage = update.message;
-      const chatId = update.chat;
-      const participant = deletedMessage.participant || deletedMessage.sender;
-      const messageType = deletedMessage.message || null;
-      const messageText = messageType ? messageType.text : null;
-      console.log(`Message deleted by ${participant} in chat ${chatId}`);
-      console.log(`Deleted message text: ${messageText}`);
-      // ... rest of your code ...
-    } else if (update.type === "edit") {
-      const editedMessage = update.message;
-      const chatId = update.chat;
-      const participant = editedMessage.participant || editedMessage.sender;
-      const messageType = editedMessage.message || null;
-      const messageText = messageType ? messageType.text : null;
-      console.log(`Message edited by ${participant} in chat ${chatId}`);
-      console.log(`Edited message text: ${messageText}`);
-      // ... rest of your code ...
-    } else if (update.type === "archive") {
-      const archivedChat = update.chat;
-      console.log(`Chat archived: ${archivedChat}`);
-      // ... rest of your code ...
-    } else if (update.type === "unarchive") {
-      const unarchivedChat = update.chat;
-      console.log(`Chat unarchived: ${unarchivedChat}`);
-      // ... rest of your code ...
-    }
-  } catch (error) {
-    console.error("Error handling chat update event:", error);
-  }
-});
