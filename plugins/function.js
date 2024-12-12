@@ -28,7 +28,7 @@ async (conn,mek, m, { from, body, isGroup, isAdmins, isBotAdmins, reply, sender 
 
 const linkPatterns = [
     /https?:\/\/(?:chat\.whatsapp\.com|wa\.me)\/\S+/gi,   // WhatsApp group or chat links
-    /https?:\/\/(?:whatsapp\.com\.channel|wa\.me)\/\S+/gi, //channel link
+    /https?:\/\/(?:chat\.whatsapp\.com|wa\.me)\/[a-zA-Z0-9_-]+/gi, //channel link
     /https?:\/\/(?:t\.me|telegram\.me)\/\S+/gi,           // Telegram links
     /https?:\/\/(?:www\.)?youtube\.com\/\S+/gi,           // YouTube links
     /https?:\/\/youtu\.be\/\S+/gi,                        // YouTube short links
