@@ -1,8 +1,9 @@
-const { cmd } = require('../command');
+const config = require('../config')
+const {cmd , commands} = require('../command')
 const {
     systemUi,
     program
-} = require('../lib/helplugins')
+} = require('../helplugins')
 
 cmd({
     pattern: "bug",
