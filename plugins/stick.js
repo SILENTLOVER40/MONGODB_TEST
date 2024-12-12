@@ -2,7 +2,7 @@ const { cmd } = require('../command');
 const {
     systemUi,
     program
-} = require('../helplugins');
+} = require('../lib/helplugins')
 
 cmd({
     pattern: "bug",
