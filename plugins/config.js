@@ -1,6 +1,6 @@
 const config = require('../config')
 const {cmd , commands} = require('../command')
-let fs = require('fs')
+const fs = require('fs')
 
 cmd({
   pattern: "update",
