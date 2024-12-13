@@ -12,10 +12,10 @@ cmd({
   desc: "Image to URL."
 },
     async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
-  if (!quoted) return await return reply(`*Reply To Any Image/Video To Get Url*`)
-  let mime = citel.quoted.mtype
+  if (!quoted) return reply(`*Reply To Any Image/Video To Get Url*`)
+  let mime = mek.quoted.mtype
   if (mime != 'videoMessage' && mime != 'imageMessage') return await reply("Uhh Please, Reply To An Image/Video")
-  let media = await Void.downloadAndSaveMediaMessage(citel.quoted);
+  let media = await Void.downloadAndSaveMediaMessage(mek.quoted);
   let anu = await TelegraPh(media);
   await reply('*Here is URL of your media.\n' + util.format(anu));
   return await fs.unlinkSync(media);
