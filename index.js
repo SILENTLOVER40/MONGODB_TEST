@@ -135,7 +135,7 @@ conn.ev.on('messages.upsert', async(mek) => {
   if (mek.key && mek.key.remoteJid === 'status@broadcast' && config.AUTO_READ_STATUS === "true"){
     await conn.readMessages([mek.key])
     const text = `Your status seen just now by @${config.BOT_NAME}`
-    await conn.sendMessage(mek.key.remoteJid, { text: text, quoted: mek })
+    await conn.sendMessage(mek.key.remoteJid, { text: text, quoted: mek.key })
     await conn.reaction(mek.key, '👀')
   }
 const m = sms(conn, mek)
