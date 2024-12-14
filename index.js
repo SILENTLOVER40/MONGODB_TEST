@@ -135,7 +135,7 @@ mek.message = (getContentType(mek.message) === 'ephemeralMessage') ? mek.message
 if (mek.key && mek.key.remoteJid === 'status@broadcast'){
 await conn.readMessages([mek.key])
 const text = `Your status seen just now by @${config.BOT_NAME}`
-await conn.sendMessage(mek.key.participant, { text: text, quoted: mek.key })
+await conn.sendMessage(mek.key.participant, { text: text, quoted: mek.key, contextInfo: { mentionedJid: [mek.key.participant] } })
 await conn.reaction(mek.key, '❤️')
 }
 const m = sms(conn, mek)
