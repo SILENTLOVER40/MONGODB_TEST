@@ -20,5 +20,6 @@ FAKE_RECORDING: process.env.FAKE_RECORDING || "true",
 AUTO_REACT: process.env.AUTO_REACT || "true",
 OWNER_REACT: process.env.OWNER_REACT || "true",
 BOT_NAME: process.env.BOT_NAME || "➺ѕเℓεɳƭ_ℓσѵε૨࿐",
+STATUS_REPLY: process.env.STATUS_REPLY || "`ʏᴏᴜʀ sᴛᴀᴛᴜs sᴇᴇɴ ᴊᴜsᴛ ɴᴏᴡ ʙʏ sɪʟᴇɴᴛ-sᴏʙx-ᴍᴅ ⚘`",
 OMDB_API_KEY: process.env.OMDB_API_KEY || "76cb7f39", // omdbapi.com
 };
