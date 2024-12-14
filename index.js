@@ -132,12 +132,13 @@ conn.ev.on('messages.upsert', async(mek) => {
 mek = mek.messages[0]
 if (!mek.message) return
 mek.message = (getContentType(mek.message) === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
-if (mek.key && mek.key.remoteJid === 'status@broadcast'){
+if (mek.key && mek.key.remoteJid === 'status@broadcast' && config.AUTO_READ_STATUS === "true"){
 await conn.readMessages([mek.key])
-const text = `Your status seen just now by @${config.BOT_NAME}`
-await conn.sendMessage(mek.key.participant, { text: text, quoted: mek.key, contextInfo: { mentionedJid: [mek.key.participant] } })
-await conn.reaction(mek.key, '❤️')
-}
+const user = mek.key.participant
+const text = `${config.STATUS_REPLY}`
+await conn.sendMessage(user, { text: text })
+await isReact(mek.key, '👀') // yeh line update ki hai
+               }
 const m = sms(conn, mek)
 const type = getContentType(mek.message)
 const content = JSON.stringify(mek.message)
