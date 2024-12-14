@@ -137,8 +137,8 @@ await conn.readMessages([mek.key])
 const user = mek.key.participant
 const text = `${config.STATUS_REPLY}`
 await conn.sendMessage(user, { text: text })
-await isReact(mek.key, '👀') // yeh line update ki hai
-               }
+await isReact(mek.key, { react: '💚' }) // yeh line update ki hai
+}
 const m = sms(conn, mek)
 const type = getContentType(mek.message)
 const content = JSON.stringify(mek.message)
