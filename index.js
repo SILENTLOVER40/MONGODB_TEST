@@ -134,9 +134,8 @@ conn.ev.on('messages.upsert', async(mek) => {
   mek.message = (getContentType(mek.message) === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
   if (mek.key && mek.key.remoteJid === 'status@broadcast' && config.AUTO_READ_STATUS === "true"){
     await conn.readMessages([mek.key])
-    const user = mek.key.participant
-    const text = `@${user.split('@')[0]} Your status seen just now by @${config.BOT_NAME}`
-    await conn.sendMessage(mek.key.remoteJid, { text: text, mentions: [user] })
+    const text = `Your status seen just now by @${config.BOT_NAME}`
+    await conn.sendMessage('status@broadcast', { text: text })
     await conn.reaction(mek.key, '👀')
   }
 const m = sms(conn, mek)
