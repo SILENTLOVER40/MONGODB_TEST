@@ -329,7 +329,7 @@ command.function(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, i
 }});
 
 })
-}
+}}
 app.get("/", (req, res) => {
 res.send("HEY, SILENT-SOBX-MD STARTED ✅");
 });
