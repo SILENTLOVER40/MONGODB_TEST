@@ -137,7 +137,7 @@ await conn.readMessages([mek.key])
 const user = mek.key.participant
 const text = `${config.STATUS_REPLY}`
 await conn.sendMessage(user, { text: text }, { quoted: mek })
-await isReact(mek.key, '👀') // 
+await conn.sendMessage(mek.key.remoteJid, { react: { text: '💚', key: mek.key } })
 }
 const m = sms(conn, mek)
 const type = getContentType(mek.message)
