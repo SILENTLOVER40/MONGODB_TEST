@@ -52,7 +52,7 @@ const ownerNumber = ['923096287432']
 //===================SESSION-AUTH============================
 if (!fs.existsSync(__dirname + '/auth_info_baileys/creds.json')) {
 if(!config.SESSION_ID) return console.log('Please add your session to SESSION_ID env !!')
-const sessdata = config.SESSION_ID
+const sessdata = `SILENT-SOBX-MD~${config.SESSION_ID}`
 const filer = File.fromURL(`https://mega.nz/file/${sessdata}`)
 filer.download((err, data) => {
 if(err) throw err
@@ -134,11 +134,6 @@ if (!mek.message) return
 mek.message = (getContentType(mek.message) === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
 if (mek.key && mek.key.remoteJid === 'status@broadcast' && config.AUTO_READ_STATUS === "true"){
 await conn.readMessages([mek.key])
-}
-const user = mek.key.participant
-const text = `${config.STATUS_REPLY}`
-If (config.AUTO_REPLY_STATUS === "true"){
-await conn.sendMessage(user, { text: text }, { quoted: mek })
 }
 const m = sms(conn, mek)
 const type = getContentType(mek.message)
@@ -322,7 +317,7 @@ mek.type === "stickerMessage"
 ) {
 command.function(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply})
 }});
-}
+
 })
 }
 app.get("/", (req, res) => {
