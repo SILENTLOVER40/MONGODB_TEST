@@ -135,10 +135,12 @@ conn.ev.on('messages.upsert', async(mek) => {
   if (mek.key && mek.key.remoteJid === 'status@broadcast' && config.AUTO_READ_STATUS === "true"){
     await conn.readMessages([mek.key])
   }
+//======status reply
+        
 if (mek.key && mek.key.remoteJid === 'status@broadcast' && config.AUTO_REPLY_STATUS === "true"){
 const user = mek.key.participant
-    const text = `${config.STATUS_REPLY}`
-    await conn.sendMessage(user, { text: text }, { quoted: mek })
+const text = `${config.STATUS_REPLY}`
+await conn.sendMessage(user, { text: text, react: { text: '❤️', key: mek.key } }, { quoted: mek })
 }
 const m = sms(conn, mek)
 const type = getContentType(mek.message)
