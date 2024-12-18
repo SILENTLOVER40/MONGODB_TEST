@@ -1,14 +1,17 @@
-const fs = require('fs'); // برای ذخیره فایل‌ها
-const path = require('path'); // برای مدیریت مسیر فایل‌ها
+const fs = require('fs') // برای ذخیره فایل‌ها
+const path = require('path') // برای مدیریت مسیر فایل‌ها
+
 cmd({
-  pattern: "save",
-  alias: ["download", "savefile"], // دستورات مشابه
-  desc: "Save and send the replied media to the sender",
-  react: "💾",
-  category: "utility",
-  filename: __filename
-}, async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, reply }) => {
-  try {
+    pattern: "save",
+    alias: ["sendstatus","send"], 
+    react: "🐬",
+    desc: "restart the bot",
+    category: "owner",
+    filename: __filename
+  
+},
+async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+try{
     // چک کردن اینکه پیام ریپلای شده است یا خیر
     if (!quoted || !quoted.mtype) {
       return reply("Please reply to a Video, Image, or Audio to save.");
