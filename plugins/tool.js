@@ -31,7 +31,7 @@ cmd({
     on: "body"
 },    
 async (conn, mek, m, { from, body, isOwner }) => {
-    if (config.BOT_TYPE === 'true') {
+    if (config.CURRENT_STATUS === 'true') {
         await conn.sendPresenceUpdate('null', from); // Null state (idle or default)
     }
 });
