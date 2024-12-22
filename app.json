@@ -23,9 +23,18 @@
       "description": "you can use this public mongodb url if you have your personal key So you can use him.",
       "required": true,
       "value": "HIIIIIII AND MORE"
+   }, 
+      "ALWAYS_ONLINE": {
+      "description": "you can true false it.",
+      "required": true,
+      "value": "true"
     }, 
-
-    "AUTO_REPLY_STATUS": {
+    "BOT_TYPE": {
+      "description": "you can true false it.",
+      "required": true,
+      "value": "true"
+    }, 
+    "FAKE_TYPING": {
       "description": "you can true false it.",
       "required": true,
       "value": "true"
