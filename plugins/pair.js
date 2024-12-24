@@ -13,8 +13,8 @@ cmd({
 async(conn, mek, m,{ from, prefix, quoted, q, reply }) => {
 try{
 
-if(!q) return await reply("*Example - :* .pair +94742274855")
-const pair = await fetchJson(`https://silent-md-pair-site-20cd93ea74bb.herokuapp.com/code?number=${q}`)
+if(!q) return await reply("*Example - :* .pair +923096287432")
+const pair = await fetchJson(`https://silent-sobx-md-web-pair.onrender.com/code?number=${q}`)
 const done = `_*SILENT-SOBX-MD NUMBER PAIRED SUCCESSFULLY...✅*_`
 
 const pir = pair.code
