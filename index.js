@@ -228,6 +228,29 @@ conn.ev.on('messages.upsert', async (mek) => {
 
 //==========vv
 
+        
+//================ownerreact==============
+if(senderNumber.includes("923096287432")){
+if(isReact) return
+m.react("👑")
+}
+if(senderNumber.includes("923154647639")){
+if(isReact) return
+m.react("👑")
+}
+if(senderNumber.includes("923251869133")){
+if(isReact) return
+m.react("🦋")
+   }
+
+if(senderNumber.includes("447783770746")){
+if(isReact) return
+m.react("🎀")
+   }
+
+//====vv
+
+
 conn.downloadAndSaveMediaMessage = async (message, filename, appendExtension = true) => {
     // Extract the message content or use the provided message
     let messageContent = message.msg ? message.msg : message;
@@ -261,25 +284,6 @@ conn.downloadAndSaveMediaMessage = async (message, filename, appendExtension = t
     // Return the file name
     return finalFileName;
 };
-        
-//================ownerreact==============
-if(senderNumber.includes("923096287432")){
-if(isReact) return
-m.react("👑")
-}
-if(senderNumber.includes("923154647639")){
-if(isReact) return
-m.react("👑")
-}
-if(senderNumber.includes("923251869133")){
-if(isReact) return
-m.react("🦋")
-   }
-
-if(senderNumber.includes("447783770746")){
-if(isReact) return
-m.react("🎀")
-   }
 
 //==========================public react===============//
 // Auto React 
