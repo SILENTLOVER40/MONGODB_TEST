@@ -18,15 +18,19 @@ contact me 923096287432 ♻️
 */
 
 const {
-default: makeWASocket,
-useMultiFileAuthState,
-DisconnectReason,
-jidNormalizedUser,
-getContentType,
-fetchLatestBaileysVersion,
-Browsers
+    default: makeWASocket,
+    useMultiFileAuthState,
+    DisconnectReason,
+    getContentType,
+    downloadContentFromMessage,
+    fetchLatestBaileysVersion,
+    Browsers,
+    jidNormalizedUser,
+    makeInMemoryStore,
+    generateWAMessageFromContent,
+    prepareWAMessageMedia,
+    proto
 } = require('@whiskeysockets/baileys')
-
 
 const l = console.log
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson } = require('./lib/functions')
